@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+</head>
+<body>
+    <script>
+        function mainShoppingList() {
+  let shoppingList = [];
+  let addingItems = true;
+
+  while (addingItems) {
+    let itemName = prompt("Enter an item name:");
+    let itemPrice = Number.parseInt(prompt("Enter the item price:"));
+
+    let item = {
+      name: itemName,
+      price: itemPrice
+    };
+
+    shoppingList.push(item);
+
+    let continueAdding = prompt("Do you want to add another item? (yes/no)");
+    if (continueAdding.toLowerCase() === "no") {
+      addingItems = false;
+    }
+  }
+
+  let totalPrice = 0;
+  console.log("Shopping List:");
+  for (let i = 0; i < shoppingList.length; i++) {
+    console.log(shoppingList[i].name + " - Rs" + shoppingList[i].price);
+    totalPrice += shoppingList[i].price;
+  }
+  console.log("Total price: Rs" + totalPrice);
+}
+
+mainShoppingList();
+
+    </script>
+</body>
+</html>

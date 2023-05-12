@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+</head>
+
+<body>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let numGuesses = 0;
+        let userGuess = prompt("Guess a number between 1 and 100");
+
+        while (userGuess != randomNumber) {
+            numGuesses++;
+
+            if (userGuess > randomNumber) {
+                alert("Number lesser than it! Guess again.");
+            } else {
+                alert("Number greater than it! Guess again.");
+            }
+
+            userGuess = prompt("Guess a number between 1 and 100");
+        }
+
+        alert("Congratulations! You guessed the number in " + numGuesses + " tries.");
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+Hello Everyone,
+
+This code is a simple auto text generator that displays a randomly selected word on a webpage using JavaScript. The HTML file has a paragraph element that displays the word "JavaScript Is" with a blinking cursor following it. The JavaScript file has an array of words to be displayed, and it has functions to type out the words one letter at a time, and then erase them one letter at a time before typing out a new word. The CSS file has styles to format the webpage, including setting the background color, centering the text, and changing the color and size of certain elements.
+
+Overall, this code is a great example of how JavaScript can be used to create interactive and dynamic content on a webpage, and it could be used as a starting point for creating more complex auto text generators or other interactive content.

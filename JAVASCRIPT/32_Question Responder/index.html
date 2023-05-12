@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question Responder</title>
+</head>
+<style>
+    body {
+	font-family: 'Roboto', sans-serif;
+	background: linear-gradient(rgb(69, 237, 231),rgb(247, 17, 255));
+    font-style: italic;
+}
+
+.question-responder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+h1 {
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}
+
+p {
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+}
+
+input[type="text"] {
+	padding: 0.5rem;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 1rem;
+}
+
+button {
+	background-color: #38323b;
+	color: white;
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 5px;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+button:hover{
+    transition: 0.3s ease-in-out;
+    background: #444;
+}
+#answer {
+	margin-top: 2rem;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+</style>
+<body>
+	<div class="question-responder">
+		<h1>Question Responder</h1>
+		<p>Ask a yes or no question:</p>
+		<input type="text" id="question">
+		<button id="btn">Get Answer</button>
+		<div id="answer"></div>
+	</div>
+	<script src="main.js"></script>
+</body>
+</html>

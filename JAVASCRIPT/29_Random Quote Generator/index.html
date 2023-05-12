@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+</head>
+<body>
+    <script>
+        
+const quoteList = [
+  "Strive for Progress instead of Perfection. A little Progress everyday make you go a long way",
+  "Success comes to those who stay focused on their goals despite the setbacks and distractions that life can bring",
+  "Realisations are Better than Regrets.",
+  "The past is a lesson, the future is a mystery, and the present is a gift",
+  "A true friend is someone who doesn't walk away when the going gets tough, but rather stands by your side and helps you through the storm",
+  "We Become What We Think About."
+];
+
+const randomIndex = Math.floor(Math.random() * quoteList.length);
+
+const randomQuote = quoteList[randomIndex];
+
+console.log(randomQuote);
+
+    </script>
+</body>
+</html>

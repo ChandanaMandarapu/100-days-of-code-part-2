@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Navigation Menu</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background: deepskyblue;
+            margin: 0;
+            color: white;
+            font-weight: 500;
+            font-style: oblique;
+            font-size: 1.5rem;
+        }
+        nav{
+            background:  #fff;
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 80px;
+            border-radius: 3px;
+            box-shadow: 0 2px 3px 4px rgba(0,0,0,0.3);
+            transition: width 0.4s linear;
+        }
+
+        nav.active{
+            width: 500px;
+        }
+        ul{
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 0;
+            transition: width 0.4s linear;
+        }
+        nav.active ul{
+            width: 100%;
+        }
+        nav ul li{
+            transform: rotate(2deg);
+            transition: transform 0.4s linear,opacity 0.4s linear ;
+            opacity: 0;
+        }
+        nav.active ul li{
+            opacity: 1;
+            transform: rotateY(360deg);
+        }
+        nav ul a{
+            position: relative;
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .btn{
+            border: 0;
+            padding: 0;
+            position: relative;
+            height: 30px;
+            width: 30px;
+            cursor: pointer;
+            outline: none;
+        }
+        .btn .line{
+            background-color: #222;
+            height: 2px;
+            width: 20px;
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            transition: transform 0.4s linear;
+        }
+        .btn .linetwo{
+            top: auto;
+            bottom: 10px;
+        }
+        nav.active .btn .lineone{
+            transform: rotate(-765deg) translateY(5.5px);
+        }
+        nav.active .btn .linetwo{
+            transform: rotate(765deg) translateY(-5.5px);
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Reveiew</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+            
+        </ul>
+
+        <button class="btn" id="toggle">
+            <div class="line lineone"></div>
+            <div class="line linetwo"></div>
+        </button>
+    </nav>
+    <script src="main.js"></script>
+</body>
+</html>

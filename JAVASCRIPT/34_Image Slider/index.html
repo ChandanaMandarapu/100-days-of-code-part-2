@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Slider</title>
+    <style>
+      body {
+        background-color: rgb(27, 27, 27);
+      }
+      .slider {
+        width: 800px;
+        height: 600px;
+        margin: 0 auto;
+        position: relative;
+        margin-top: 5rem;
+      }
+      .slider img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        transform: scale(0.8);
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+      .slider img.active {
+        opacity: 1;
+      }
+      .slider button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #777;
+        color: white;
+        font-size: 24px;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .slider button.prev {
+        left: 0;
+      }
+      .slider button.next {
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <img src="https://media.istockphoto.com/id/599896450/photo/asia-jungle.jpg?s=612x612&w=0&k=20&c=Uuj1NB2c2pWRFA5j7xVt1vUg52bTek85RrNGjgQcHR4=" class="active" />
+      <img src="https://media.istockphoto.com/id/663261182/photo/northern-lights-in-mount-kirkjufell-iceland-with-a-man-passing-by.jpg?s=612x612&w=0&k=20&c=HnhkVPYRXShUWJEcZe3KEBNrOo51ImxPccjUg34MXt4=" />
+      <img src="https://media.istockphoto.com/id/618969516/photo/silhouette-of-girl-standing-alone-in-pine-forest-at-twilight.jpg?s=612x612&w=0&k=20&c=VMtOOPeuOCs1iIoMelNtAKI0jLjYxywgh3vacPy63nY=" />
+      <img src="https://media.istockphoto.com/id/628987676/photo/compass.jpg?s=612x612&w=0&k=20&c=36Ur-I5-zHFYqx2LhpK-cgu3KBWoMzkohXv8cXgqlHE=" />
+      <img src="https://media.istockphoto.com/id/916399712/photo/hourglass-on-a-beaxh-at-sunsrise.jpg?s=612x612&w=0&k=20&c=9EieT7oOM03QW3gCi_L2-tdDtgGljuIvMZl9nWCesjw=" />
+      <img src="https://media.istockphoto.com/id/1332827275/photo/business-investment-and-ai-artificial-intelligence-data-analysis-technology-businessman-and.jpg?s=612x612&w=0&k=20&c=b97jCFDp-4hBQc4VKwG2Foay_c_JvYE3gphh-NSd_NU=" />
+      <img src="https://media.istockphoto.com/id/1032935604/photo/ai-robot-thinking.jpg?s=612x612&w=0&k=20&c=VFivInO91UZd-m6vczJ0X5ZwC9bIZlbN2CN5Hx1IeEQ=" />
+      <img src="https://media.istockphoto.com/id/1292266545/photo/authentic-road-sign-in-colorado-that-says-disappointment-valley-a-place-of-utter-despair-and.jpg?s=612x612&w=0&k=20&c=X7WVQITRRCLFOIQiulXAuJg8-r1Gh6WOjh9W_Qpmb8M=" />
+      <button class="prev">Prev</button>
+      <button class="next">Next</button>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

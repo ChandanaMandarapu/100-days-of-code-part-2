@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+</head>
+<body>
+    <script>
+        // Q1 Write a program that asks the user to enter their name and then displays a greeting message using their name.
+
+let name = prompt("Enter You Name");
+let userName = alert("Your name is " + name);
+
+// Q2 Write a program that takes two numbers as input and displays the sum of the numbers if both are positive. If any of the numbers are negative, the program should display an error message.
+
+let num1 = prompt("Enter first number");
+num1 = Number.parseInt(num1);
+let num2 = prompt("Enter second number");
+num2 = Number.parseInt(num2);
+
+if(num1 > 0 && num2 > 0){
+  console.log("Sum of First number and Second number is " + (num1+num2));
+}else if(num1 < 0 && num2 <0){
+  console.log("Error! Enter a Positive number")
+}
+
+// Q3 Write a program that takes the name of a month as input and displays the number of days in that month. You can assume that the input will always be a valid month name.
+
+let month = prompt("Enter the name of a month");
+
+if (month === "January" || month === "March" || month === "May" || month === "July" || month === "August" || month === "October" || month === "December") {
+  console.log(month+ " has 31 days");
+} else if (month === "April" || month === "June" || month === "September" || month === "November") {
+  console.log(month + " has 30 days");
+} else if (month === "February") {
+  console.log(month + " has 28 or 29 days");
+} else {
+  console.log("You entered an invalid month name");
+}
+
+// Q4 Write a program that takes a year as input and displays whether it is a leap year or not. 
+
+let year = prompt("Enter any year");
+
+if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+  console.log(year + " is a leap year");
+} else {
+  console.log(year + " is not a leap year");
+}
+
+//,Q5 Write a program that takes a sentence as input and displays the number of vowels in the sentence. 
+
+let sentence = prompt("Enter any sentence");
+
+if (sentence.includes("a") || sentence.includes("e") || sentence.includes("i") || sentence.includes("o") || sentence.includes("u")) {
+  console.log("The sentence contains at least one vowel");
+} else {
+  console.log("The sentence does not contain any vowel");
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulator</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>// A BASIC MINI PROJECT STRING MANIPULATOR - Strings are reversed.
+
+        const firstString = prompt("Enter any two strings:");
+        
+        // Reversing the order of words in the string
+        const words = firstString.split(" ");
+        const reversedWords = words.reverse();
+        const reversedString = reversedWords.join(" ");
+        
+        console.log("Reversed string: ", reversedString);
+        
+        // Finding the longest and shortest words in the string
+        let longestWord = "";
+        let shortestWord = words[0];
+        for (let i = 0; i < words.length; i++) {
+          if (words[i].length > longestWord.length) {
+            longestWord = words[i];
+          }
+          if (words[i].length < shortestWord.length) {
+            shortestWord = words[i];
+          }
+        }
+        
+        console.log("Longest word: ", longestWord);
+        console.log("Shortest word: ", shortestWord);</script>
+</body>
+</html>

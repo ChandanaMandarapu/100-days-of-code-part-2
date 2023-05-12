@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Quote Generator</title>
+	<style>
+		body {
+			background-image: url('https://media.istockphoto.com/id/155351601/photo/hilly-meadow-at-night-with-full-moon-clouds-and-grass.jpg?s=612x612&w=0&k=20&c=nO14QL8659QTyh6WMNbGQnR99pZwEmMVrdWupMalmsg='); 
+			background-size: cover;
+			background-position: center;
+			font-family: 'Roboto', sans-serif;
+			font-size: 1.2rem;
+			color: white;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		h1 {
+			font-size: 3rem;
+			margin-bottom: 2rem;
+			text-align: center;
+			text-shadow: 2px 2px rgba(0,0,0,0.5);
+		}
+
+		#quote {
+			font-size: 2rem;
+			font-weight: bold;
+			margin-bottom: 2rem;
+			text-align: center;
+			text-shadow: 2px 2px rgba(0,0,0,0.5);
+		}
+
+		button {
+			background-color: rgba(255, 255, 255, 0.2);
+			color: white;
+			padding: 1rem 2rem;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.2rem;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+			margin-bottom: 2rem;
+		}
+		button:hover {
+			background-color: rgba(255, 255, 255, 0.3);
+			transform: scale(1.1);
+			box-shadow: 2px 2px rgba(0,0,0,0.5);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Random Quote Generator</h1>
+		<div id="quote"></div>
+		<button id="btn">Generate Quote</button>
+	</div>
+	<script src="main.js"></script>
+</body>
+</html>

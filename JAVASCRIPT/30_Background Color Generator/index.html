@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Generator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.5rem;
+            transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+            background-color: #09ea9f;
+        }
+        h2{
+            color: #222;
+            font-weight: 200;
+        }
+        button{
+            padding: 15px;
+            background: transparent;
+            border: 2px solid #222;
+            color: #222;
+            transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        button:hover{
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:active{
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Click Here</button>
+    <h2 id="hexCode">#09ea9f</h2>
+    <script src="main.js"></script>
+</body>
+</html>

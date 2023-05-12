@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mood Tracker</title>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f8f8f8;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://media.istockphoto.com/id/624886180/photo/dark-beach.jpg?s=612x612&w=0&k=20&c=Rk8JbHietthHdmC_RAQDTuI8u1h4FV1W_ag-hkhfXUk=');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+}
+
+.calendar {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  animation: fade-in 1s;
+  color: black;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mood-history {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  animation: slide-up 1s;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100px); }
+  to { transform: translateY(0); }
+}
+
+
+
+#date-picker, #mood-select, #save-btn {
+  font-size: 1.2em;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+#save-btn {
+  background-color: #34ceaf;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#save-btn:hover {
+  background-color: #1d8d77;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <h1>Mood Tracker</h1>
+    <div class="calendar">
+      <h2>Select a date:</h2>
+      <input type="date" id="date-picker">
+      <h2>Select your mood:</h2>
+      <select id="mood-select">
+        <option value="happy">😀 Happy</option>
+        <option value="neutral">😐 Neutral</option>
+        <option value="sad">😔 Sad</option>
+      </select>
+      <button id="save-btn">Save</button>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
