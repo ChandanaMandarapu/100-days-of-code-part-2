@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome checker</title>
+</head>
+<body>
+    <script>
+        function isPalindrome(str) {
+  let start = 0;
+  let end = str.length - 1;
+
+  while (start < end) {
+    let leftChar = str.charAt(start);
+    let rightChar = str.charAt(end);
+
+    if (leftChar !== rightChar) {
+      return false;
+    }
+
+    start++;
+    end--;
+  }
+
+  return true;
+}
+
+let inputWord = prompt("Enter a word:");
+let isInputWordPalindrome = isPalindrome(inputWord);
+
+if (isInputWordPalindrome) {
+  console.log(inputWord + " is a palindrome.");
+} else {
+  console.log(inputWord + " is not a palindrome.");
+}
+
+    </script>
+</body>
+</html>
