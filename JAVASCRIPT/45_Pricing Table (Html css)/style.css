@@ -1,0 +1,63 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.pricing-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+  
+  .plan {
+    max-width: 300px;
+    padding: 2em;
+    margin: 1em;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .plan h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+  
+  .plan .price {
+    font-size: 3em;
+    margin-bottom: 1em;
+  }
+  
+  .plan ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2em;
+    text-align: left;
+  }
+  
+  .plan ul li {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+  }
+  
+  .button {
+    display: block;
+    padding: 1em 2em;
+    background-color: #008CBA;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 0.5em;
+  }
+  .button:hover{
+    background-color: #03a3d8;
+  }
+  
+  @media (max-width: 600px) {
+    .plan {
+      max-width: 100%;
+      margin: 1em 0;
+    }
+  }
+  
