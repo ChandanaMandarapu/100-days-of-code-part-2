@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Generator</title>
+</head>
+
+<body>
+    <script>
+        function generateRandomNumber(min, max) {
+            var randomNumber = Math.random() * (max - min) + min;
+            return Math.floor(randomNumber);
+        }
+
+        var minimumValue = parseInt(prompt('Enter the minimum value:'));
+        var maximumValue = parseInt(prompt('Enter the maximum value:'));
+
+        var randomNum = generateRandomNumber(minimumValue, maximumValue);
+        console.log('Random number:', randomNum);
+
+    </script>
+</body>
+
+</html>
