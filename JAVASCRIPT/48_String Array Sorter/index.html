@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Array Sorter</title>
+</head>
+
+<body>
+    <script>
+        function sortStrings(strings) {
+            var sortedStrings = strings.sort();
+            return sortedStrings;
+        }
+
+        var input = prompt('Enter a list of strings, separated by commas:');
+        var stringArray = input.split(',');
+        var sortedArray = sortStrings(stringArray);
+
+        console.log('Sorted array:', sortedArray);
+
+    </script>
+</body>
+
+</html>
