@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Merger</title>
+</head>
+
+<body>
+    <script>
+        function mergeAndSortArrays() {
+            const array1 = prompt('Enter the elements of array 1, separated by commas:').split(',');
+            const array2 = prompt('Enter the elements of array 2, separated by commas:').split(',');
+
+            const mergedArray = array1.concat(array2);
+            const uniqueArray = mergedArray.filter((value, index, self) => {
+                return self.indexOf(value) === index;
+            });
+            const sortedArray = uniqueArray.sort((a, b) => {
+                return a - b;
+            });
+
+            return sortedArray;
+        }
+
+        const mergedAndSorted = mergeAndSortArrays();
+        console.log('Merged and sorted array:', mergedAndSorted);
+
+    </script>
+</body>
+
+</html>
