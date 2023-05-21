@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum and Avg</title>
+</head>
+
+<body>
+    <script>
+        function calculateSumAndAverage() {
+            const input = prompt('Enter a list of numbers, separated by commas:');
+            const numberArray = input.split(',').map(Number);
+
+            let sum = 0;
+            for (let i = 0; i < numberArray.length; i++) {
+                sum += numberArray[i];
+            }
+
+            const average = sum / numberArray.length;
+
+            return {
+                sum: sum,
+                average: average
+            };
+        }
+
+        const result = calculateSumAndAverage();
+        console.log('Sum:', result.sum);
+        console.log('Average:', result.average);
+
+    </script>
+</body>
+
+</html>
