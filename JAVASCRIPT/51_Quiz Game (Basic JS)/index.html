@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+</head>
+
+<body>
+    <script>
+        const questions = [
+            "What is the capital of India?",
+            "Which city is known as the 'Pink City'?",
+            "Which river is the longest in India?",
+            "Who is known as the 'Father of the Nation'?",
+            "Which is the national bird of India?"
+        ];
+
+        const answers = [
+            "New Delhi",
+            "Jaipur",
+            "Ganges",
+            "Mahatma Gandhi",
+            "Peacock"
+        ];
+
+        let score = 0;
+
+        for (let i = 0; i < questions.length; i++) {
+            const userAnswer = prompt(questions[i]);
+            if (userAnswer.toLowerCase() === answers[i].toLowerCase()) {
+                console.log("Correct!");
+                score++;
+            } else {
+                console.log("Incorrect!");
+            }
+        }
+
+        console.log("Your score:", score, "out of", questions.length);
+
+    </script>
+</body>
+
+</html>
