@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Caluclator
+    </title>
+</head>
+
+<body>
+    <script>
+        function add(num1, num2) {
+            return num1 + num2;
+        }
+
+        function subtract(num1, num2) {
+            return num1 - num2;
+        }
+
+        function multiply(num1, num2) {
+            return num1 * num2;
+        }
+
+        function divide(num1, num2) {
+            return num1 / num2;
+        }
+
+        function calculate(operator, num1, num2) {
+            switch (operator) {
+                case "+":
+                    return add(num1, num2);
+                case "-":
+                    return subtract(num1, num2);
+                case "*":
+                    return multiply(num1, num2);
+                case "/":
+                    return divide(num1, num2);
+                default:
+                    return "Invalid operator";
+            }
+        }
+
+        let operator = prompt("Enter the operator (+, -, *, /):");
+        let number1 = parseFloat(prompt("Enter the first number:"));
+        let number2 = parseFloat(prompt("Enter the second number:"));
+
+        let result = calculate(operator, number1, number2);
+
+        console.log("Calculator");
+        console.log("Number 1:", number1);
+        console.log("Number 2:", number2);
+        console.log("Operator:", operator);
+        console.log("Result:", result);
+
+    </script>
+</body>
+
+</html>
