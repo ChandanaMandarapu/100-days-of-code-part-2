@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let tasks = [];
+
+        function addTask(task) {
+            tasks.push(task);
+            console.log("Task added: " + task);
+        }
+
+        function removeTask(task) {
+            let index = tasks.indexOf(task);
+            if (index !== -1) {
+                tasks.splice(index, 1);
+                console.log("Task removed: " + task);
+            } else {
+                console.log("Task not found: " + task);
+            }
+        }
+
+        function displayTasks() {
+            if (tasks.length === 0) {
+                console.log("No tasks found");
+            } else {
+                console.log("Tasks:");
+                for (let i = 0; i < tasks.length; i++) {
+                    console.log("- " + tasks[i]);
+                }
+            }
+        }
+
+        let choice;
+        do {
+            console.log("Task Manager");
+            console.log("1. Add Task");
+            console.log("2. Remove Task");
+            console.log("3. Display Tasks");
+            console.log("4. Exit");
+            choice = parseInt(prompt("Enter your choice (1-4):"));
+
+            switch (choice) {
+                case 1:
+                    let newTask = prompt("Enter the task:");
+                    addTask(newTask);
+                    break;
+                case 2:
+                    let taskToRemove = prompt("Enter the task to remove:");
+                    removeTask(taskToRemove);
+                    break;
+                case 3:
+                    displayTasks();
+                    break;
+                case 4:
+                    console.log("Exiting...");
+                    break;
+                default:
+                    console.log("Invalid choice");
+            }
+        } while (choice !== 4);
+
+    </script>
+</body>
+
+</html>
