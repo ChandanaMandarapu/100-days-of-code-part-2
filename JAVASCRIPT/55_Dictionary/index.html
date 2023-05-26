@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+</head>
+
+<body>
+    <script>
+        const dictionary = {
+            life: "The existence of an individual human being or animal.",
+            hardwork: "A great deal of effort or endurance.",
+            success: "The accomplishment of an aim or purpose.",
+            dedication: "The quality of being committed to a task or purpose.",
+            perseverance: "The persistence in doing something despite difficulty or delay in achieving success.",
+            passion: "A strong and barely controllable emotion or enthusiasm.",
+            motivation: "The reason or reasons one has for acting or behaving in a particular way.",
+            resilience: "The capacity to recover quickly from difficulties; toughness.",
+            determination: "Firmness of purpose; resoluteness.",
+            achievement: "A thing done successfully, typically by effort, courage, or skill.",
+        };
+
+        function getWordMeaning() {
+            const word = prompt("Enter a word to get its meaning:");
+            const lowerCaseWord = word.toLowerCase();
+
+            if (dictionary.hasOwnProperty(lowerCaseWord)) {
+                const meaning = dictionary[lowerCaseWord];
+                console.log(`Meaning of "${word}": ${meaning}`);
+            } else {
+                console.log(`Meaning of "${word}" not found in the dictionary.`);
+            }
+        }
+
+        function displayDictionary() {
+            console.log("Dictionary:");
+            for (let word in dictionary) {
+                console.log(`- ${word}`);
+            }
+        }
+
+        let choice;
+        do {
+            console.log("Dictionary Menu");
+            console.log("1. Get Word Meaning");
+            console.log("2. Display Dictionary");
+            console.log("3. Exit");
+            choice = parseInt(prompt("Enter your choice (1-3):"));
+
+            switch (choice) {
+                case 1:
+                    getWordMeaning();
+                    break;
+                case 2:
+                    displayDictionary();
+                    break;
+                case 3:
+                    console.log("Exiting...");
+                    break;
+                default:
+                    console.log("Invalid choice");
+            }
+        } while (choice !== 3);
+
+    </script>
+</body>
+
+</html>
