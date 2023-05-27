@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Analyzer</title>
+</head>
+
+<body>
+    <script>
+        function isPrime(num) {
+            if (num < 2) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function isComposite(num) {
+            return !isPrime(num);
+        }
+
+        function calculateSum(num1, num2, num3) {
+            let sum = num1 + num2 + num3;
+            for (let i = 1; i <= 100; i++) {
+                if (i % num1 === 0 || i % num2 === 0 || i % num3 === 0) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+
+        const num1 = parseInt(prompt("Enter number 1 (1-100):"));
+        const num2 = parseInt(prompt("Enter number 2 (1-100):"));
+        const num3 = parseInt(prompt("Enter number 3 (1-100):"));
+
+        console.log("Number 1 is " + (num1 % 2 === 0 ? "even" : "odd") + ".");
+        console.log("Number 2 is " + (num2 % 2 === 0 ? "even" : "odd") + ".");
+        console.log("Number 3 is " + (num3 % 2 === 0 ? "even" : "odd") + ".");
+
+        console.log("Number 1 is " + (isPrime(num1) ? "prime" : "composite") + ".");
+        console.log("Number 2 is " + (isPrime(num2) ? "prime" : "composite") + ".");
+        console.log("Number 3 is " + (isPrime(num3) ? "prime" : "composite") + ".");
+
+        const sum = calculateSum(num1, num2, num3);
+        console.log("The sum of the numbers and their multiples is: " + sum);
+
+    </script>
+</body>
+
+</html>
