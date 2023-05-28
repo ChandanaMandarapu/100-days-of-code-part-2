@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Caluclator</title>
+</head>
+
+<body>
+    <script>
+        function calculateRecommendedWeight(height) {
+            return Math.round((height - 100) * 0.9);
+        }
+
+        function calculateCalorieIntake(weight) {
+            return weight * 30;
+        }
+
+        function calculateProteinIntake(weight) {
+            return weight * 2;
+        }
+
+        function calculateFatIntake(weight) {
+            return weight * 0.8;
+        }
+
+        function calculateValues() {
+            const height = prompt('Enter your height (in centimeters):');
+            const recommendedWeight = calculateRecommendedWeight(height);
+            const calorieIntake = calculateCalorieIntake(recommendedWeight);
+            const proteinIntake = calculateProteinIntake(recommendedWeight);
+            const fatIntake = calculateFatIntake(recommendedWeight);
+
+            console.log(`Recommended Weight: ${recommendedWeight} kg`);
+            console.log(`Calorie Intake: ${calorieIntake} calories`);
+            console.log(`Protein Intake: ${proteinIntake} grams`);
+            console.log(`Fat Intake: ${fatIntake} grams`);
+        }
+
+        calculateValues();
+
+    </script>
+</body>
+
+</html>
