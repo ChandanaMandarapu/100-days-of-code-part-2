@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Movie Reccomender
+    </title>
+</head>
+
+<body>
+    <script>
+        const movieRecommendations = {
+            horror: ["The Conjuring", "Get Out", "A Quiet Place", "Hereditary"],
+            comedy: ["Superbad", "Anchorman", "Bridesmaids", "The Hangover"],
+            drama: ["The Shawshank Redemption", "The Godfather", "Fight Club", "Pulp Fiction"],
+            adventure: ["Indiana Jones", "Jurassic Park", "The Lord of the Rings", "Avatar"],
+            motivational: ["The Pursuit of Happyness", "Rocky", "The Blind Side", "Dead Poets Society"],
+        };
+
+        let userGenre = prompt("What type of movie are you in the mood for? (horror, comedy, drama, adventure, motivational)");
+        userGenre = userGenre.toLowerCase();
+
+        if (userGenre in movieRecommendations) {
+            const movies = movieRecommendations[userGenre];
+            const randomIndex = Math.floor(Math.random() * movies.length);
+            const recommendedMovie = movies[randomIndex];
+
+            alert(`Based on your preference for ${userGenre}, I recommend the movie: ${recommendedMovie}`);
+        } else {
+            alert("Sorry, I don't have any recommendations for that genre.");
+        }
+
+    </script>
+</body>
+
+</html>
