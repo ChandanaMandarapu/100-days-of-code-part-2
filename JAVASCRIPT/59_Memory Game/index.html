@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const cards = [
+            "Ace of Spades", "Ace of Hearts", "Ace of Diamonds", "Ace of Clubs",
+            "King of Spades", "King of Hearts", "King of Diamonds", "King of Clubs",
+            "Queen of Spades", "Queen of Hearts", "Queen of Diamonds", "Queen of Clubs"
+        ];
+        let flippedCards = [];
+
+        function flipCard(cardIndex) {
+            if (flippedCards.includes(cardIndex)) {
+                return;
+            }
+
+            flippedCards.push(cardIndex);
+            console.log(cards[cardIndex]);
+
+            if (flippedCards.length === 2) {
+                const cardValue1 = cards[flippedCards[0]];
+                const cardValue2 = cards[flippedCards[1]];
+
+                if (cardValue1 === cardValue2) {
+                    console.log("Match!");
+                    flippedCards = [];
+                } else {
+                    console.log("No match!");
+
+                    flippedCards.forEach((index) => {
+                        console.log(cards[index]);
+                    });
+
+                    flippedCards = [];
+                }
+            }
+        }
+        flipCard(0);
+        flipCard(1);
+        flipCard(2);
+
+    </script>
+</body>
+
+</html>
