@@ -1,0 +1,223 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Common styles */
+  body {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    background:#f8f8f8;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 32px;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    line-height: 1.6
+  }
+  
+  /* Intro section */
+  .intro-section {
+    background-color: #333;
+    padding: 30px 0;
+    color: azure;
+  }
+  
+  .intro-image {
+    float: right;
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  
+  .intro-image img {
+    width: 160px;
+    border-radius: 5px;
+  }
+  
+  .intro-description {
+    overflow: hidden;
+  }
+  
+  /* Add animation to intro section */
+  .intro-description h2,
+  .intro-description p {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.6s forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Add hover effect to intro image */
+  .intro-image img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+  }
+  .projects-section {
+    margin-top: 1.5rem;
+    background-color: rgb(85, 208, 217);
+    padding: 40px 0;
+  }
+  
+  .projects-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .projects {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .project {
+    width: calc(33.33% - 10px);
+    margin-bottom: 20px;
+  }
+  
+  .project a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .project img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s;
+  }
+  
+  .project p {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bolder;
+  }
+  
+  .project:hover img {
+    transform: scale(1.05);
+  }
+  .challenges-section {
+    margin-top: 1.5rem;
+    background-color: #333;
+    padding: 40px 0;
+    color: azure;
+  }
+  
+  .challenges-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .challenges-image {
+    width: 30%;
+    margin-right: 20px;
+  }
+  
+  .challenges-image img {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+  
+  .challenges-description {
+    width: 70%;
+  }
+  
+  .challenges-description h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .challenges-description p {
+    line-height: 1.6;
+  }
+  .thankyou-section {
+    background-color: rgb(85, 208, 217);
+    margin-top: 1.5rem;
+    padding: 30px 0;
+    text-align: center;
+  }
+  
+  .thankyou-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .thankyou-section p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .thankyou-section .quote {
+    font-style: italic;
+  }
+  
+  /* Add responsiveness */
+  @media only screen and (max-width: 768px) {
+    .intro-section {
+      padding: 20px 0;
+    }
+  
+    .intro-image {
+      float: none;
+      margin: 0 auto 20px;
+      text-align: center;
+    }
+    .projects-section {
+        padding: 20px 0;
+      }
+    
+      .projects {
+        flex-wrap: wrap;
+      }
+    
+      .project {
+        width: calc(50% - 10px);
+      }
+      .challenges-content {
+        flex-direction: column;
+      }
+    
+      .challenges-image,
+      .challenges-description {
+        width: 100%;
+        margin: 0;
+      }
+    
+      .challenges-image {
+        margin-bottom: 20px;
+      }
+      .thankyou-section {
+        padding: 20px 0;
+      }
+  }
+  
