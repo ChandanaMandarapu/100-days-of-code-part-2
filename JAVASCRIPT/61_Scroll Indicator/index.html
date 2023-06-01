@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Indicator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            padding: 4rem;
+            background: black;
+            color: azure;
+        }
+        #scrollIndicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 8px;
+            background-color: darkturquoise;
+            transition: width 0.2s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="scrollIndicator"></div>
+
+    <div id="content">
+        <h1>Welcome to My Page</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu dolor ut nunc interdum ullamcorper a nec
+            tortor. Suspendisse potenti. Donec non consequat velit. Suspendisse potenti. Etiam ac ex sed nisi pulvinar
+            efficitur. Fusce eleifend mi in sem interdum elementum. Nulla facilisi. Suspendisse et vestibulum ante.</p>
+        <p>Nulla consequat porttitor arcu, eget ultrices ipsum vestibulum eu. Sed posuere consectetur est at lobortis.
+            Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Vestibulum id ligula porta
+            felis euismod semper. Sed posuere consectetur est at lobortis.</p>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Phasellus mollis nunc sed finibus auctor. Nulla sagittis nisi non malesuada feugiat. Sed elementum, arcu non
+            fermentum sollicitudin, ligula metus malesuada enim, sit amet vulputate quam enim vitae lectus. Aenean
+            lacinia bibendum nulla sed consectetur.</p>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra
+            augue. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu dolor ut nunc interdum ullamcorper a nec
+            tortor. Suspendisse potenti. Donec non consequat velit. Suspendisse potenti. Etiam ac ex sed nisi pulvinar
+            efficitur. Fusce eleifend mi in sem interdum elementum. Nulla facilisi. Suspendisse et vestibulum ante.</p>
+        <p>Nulla consequat porttitor arcu, eget ultrices ipsum vestibulum eu. Sed posuere consectetur est at lobortis.
+            Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Vestibulum id ligula porta
+            felis euismod semper. Sed posuere consectetur est at lobortis.</p>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Phasellus mollis nunc sed finibus auctor. Nulla sagittis nisi non malesuada feugiat. Sed elementum, arcu non
+            fermentum sollicitudin, ligula metus malesuada enim, sit amet vulputate quam enim vitae lectus. Aenean
+            lacinia bibendum nulla sed consectetur.</p>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra
+            augue. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu dolor ut nunc interdum ullamcorper a nec
+            tortor. Suspendisse potenti. Donec non consequat velit. Suspendisse potenti. Etiam ac ex sed nisi pulvinar
+            efficitur. Fusce eleifend mi in sem interdum elementum. Nulla facilisi. Suspendisse et vestibulum ante.</p>
+        <p>Nulla consequat porttitor arcu, eget ultrices ipsum vestibulum eu. Sed posuere consectetur est at lobortis.
+            Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Vestibulum id ligula porta
+            felis euismod semper. Sed posuere consectetur est at lobortis.</p>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Phasellus mollis nunc sed finibus auctor. Nulla sagittis nisi non malesuada feugiat. Sed elementum, arcu non
+            fermentum sollicitudin, ligula metus malesuada enim, sit amet vulputate quam enim vitae lectus. Aenean
+            lacinia bibendum nulla sed consectetur.</p>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra
+            augue. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu dolor ut nunc interdum ullamcorper a nec
+            tortor. Suspendisse potenti. Donec non consequat velit. Suspendisse potenti. Etiam ac ex sed nisi pulvinar
+            efficitur. Fusce eleifend mi in sem interdum elementum. Nulla facilisi. Suspendisse et vestibulum ante.</p>
+        <p>Nulla consequat porttitor arcu, eget ultrices ipsum vestibulum eu. Sed posuere consectetur est at lobortis.
+            Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Vestibulum id ligula porta
+            felis euismod semper. Sed posuere consectetur est at lobortis.</p>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Phasellus mollis nunc sed finibus auctor. Nulla sagittis nisi non malesuada feugiat. Sed elementum, arcu non
+            fermentum sollicitudin, ligula metus malesuada enim, sit amet vulputate quam enim vitae lectus. Aenean
+            lacinia bibendum nulla sed consectetur.</p>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra
+            augue. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu dolor ut nunc interdum ullamcorper a nec
+            tortor. Suspendisse potenti. Donec non consequat velit. Suspendisse potenti. Etiam ac ex sed nisi pulvinar
+            efficitur. Fusce eleifend mi in sem interdum elementum. Nulla facilisi. Suspendisse et vestibulum ante.</p>
+        <p>Nulla consequat porttitor arcu, eget ultrices ipsum vestibulum eu. Sed posuere consectetur est at lobortis.
+            Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Vestibulum id ligula porta
+            felis euismod semper. Sed posuere consectetur est at lobortis.</p>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Phasellus mollis nunc sed finibus auctor. Nulla sagittis nisi non malesuada feugiat. Sed elementum, arcu non
+            fermentum sollicitudin, ligula metus malesuada enim, sit amet vulputate quam enim vitae lectus. Aenean
+            lacinia bibendum nulla sed consectetur.</p>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra
+            augue. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu dolor ut nunc interdum ullamcorper a nec
+            tortor. Suspendisse potenti. Donec non consequat velit. Suspendisse potenti. Etiam ac ex sed nisi pulvinar
+            efficitur. Fusce eleifend mi in sem interdum elementum. Nulla facilisi. Suspendisse et vestibulum ante.</p>
+        <p>Nulla consequat porttitor arcu, eget ultrices ipsum vestibulum eu. Sed posuere consectetur est at lobortis.
+            Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Vestibulum id ligula porta
+            felis euismod semper. Sed posuere consectetur est at lobortis.</p>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Phasellus mollis nunc sed finibus auctor. Nulla sagittis nisi non malesuada feugiat. Sed elementum, arcu non
+            fermentum sollicitudin, ligula metus malesuada enim, sit amet vulputate quam enim vitae lectus. Aenean
+            lacinia bibendum nulla sed consectetur.</p>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra
+            augue. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu dolor ut nunc interdum ullamcorper a nec
+            tortor. Suspendisse potenti. Donec non consequat velit. Suspendisse potenti. Etiam ac ex sed nisi pulvinar
+            efficitur. Fusce eleifend mi in sem interdum elementum. Nulla facilisi. Suspendisse et vestibulum ante.</p>
+        <p>Nulla consequat porttitor arcu, eget ultrices ipsum vestibulum eu. Sed posuere consectetur est at lobortis.
+            Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Vestibulum id ligula porta
+            felis euismod semper. Sed posuere consectetur est at lobortis.</p>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+            venenatis vestibulum. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+        
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra
+            augue. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.
+            Curabitur blandit tempus porttitor.</p>
+    </div>
+    <script>
+        window.addEventListener('scroll', updateScrollIndicator);
+
+        function updateScrollIndicator() {
+            const contentHeight = document.getElementById('content').offsetHeight;
+            const windowHeight = window.innerHeight;
+            const scrollableHeight = contentHeight - windowHeight;
+            const scrolledPercentage = (window.pageYOffset / scrollableHeight) * 100;
+
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            scrollIndicator.style.width = `${scrolledPercentage}%`;
+        }
+
+    </script>
+</body>
+
+</html>
