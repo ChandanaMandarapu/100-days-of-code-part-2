@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Dice Game</title>
+    <style>
+        .dice {
+            width: 100px;
+            height: 100px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .score {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple Dice Game</h1>
+    <div class="dice" id="dice"></div>
+    <button id="rollBtn">Roll the Dice</button>
+    <div class="result" id="result"></div>
+    <div class="score" id="score">Score: 0</div>
+
+    <script>
+        const dice = document.getElementById('dice');
+        const rollBtn = document.getElementById('rollBtn');
+        const result = document.getElementById('result');
+        const score = document.getElementById('score');
+
+        rollBtn.addEventListener('click', rollDice);
+
+        function rollDice() {
+            const rolledNumber = Math.floor(Math.random() * 6) + 1;
+            dice.textContent = rolledNumber;
+
+            if (rolledNumber === 1) {
+                result.textContent = 'You rolled a 1! You lose!';
+            } else {
+                result.textContent = 'You rolled a ' + rolledNumber + '! You win!';
+                score.textContent = 'Score: ' + rolledNumber;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
