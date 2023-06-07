@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flower Stages</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: rgb(9, 237, 237);
+}
+
+h1 {
+  text-align: center;
+  color: #222;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+#stage-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.stage {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-right: 20px;
+}
+
+.stage-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+  padding: 5px;
+}
+
+.stage:hover .stage-card,
+.stage.active .stage-card {
+  transform: rotateY(180deg);
+}
+
+.stage-front,
+.stage-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.stage-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.stage-back {
+  transform: rotateY(180deg);
+  background-color: #fa7eee;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.stage-image {
+  width: 250px;
+  height: auto;
+  margin-bottom: 10px;
+  
+}
+
+.flower-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+  </style>
+</head>
+<body>
+  <h1>Flower Stages</h1>
+  <div id="stage-container">
+    <div class="stage">
+      <div class="stage-card">
+        <div class="stage-front">
+          <img src="https://images.unsplash.com/photo-1567990989224-6441e1483ac8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGliaXNjdXMlMjBmbG93ZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="Flower" class="flower-image">
+        </div>
+        <div class="stage-back">
+          <h2>Stage 1: Seed</h2>
+          <img src="https://media.istockphoto.com/id/1332348909/photo/overhead-view-on-hand-feeding-red-wrigglers-earthworms-into-worm-tower-for-vermicomposting.jpg?s=612x612&w=0&k=20&c=eCT7OOx0ldQJo9SvaVRlhzofJJj4m4hLZG5AxjPstAw=" alt="Seed" class="stage-image">
+          <p>The seed is the dormant stage of a plant's life cycle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-card">
+        <div class="stage-front">
+          <img src="https://media.istockphoto.com/id/866901216/photo/small-kalanchoe-homeplant-in-a-transparent-pot-red-kalanchoe-flower.jpg?s=612x612&w=0&k=20&c=XvIFzdE1DhHthsYXUnZ5KQtoVr76Eli1U9hOHeMJimU=" alt="Germination" class="flower-image">
+        </div>
+        <div class="stage-back">
+          <h2>Stage 2: Germination</h2>
+          <img src="https://media.istockphoto.com/id/1448733136/photo/small-lettuces-growing-in-a-greenhouse.jpg?s=612x612&w=0&k=20&c=N8vFqRjUbk-JvfB72PLN_NrtrrEonwuRrOzXEhgDq60=" alt="Germination" class="stage-image">
+          <p>During germination, the seed absorbs water and begins to sprout.</p>
+        </div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-card">
+        <div class="stage-front">
+          <img src="https://media.istockphoto.com/id/1492047621/photo/close-up-shot-of-a-pink-china-hibiscus-growing-in-the-garden.jpg?s=612x612&w=0&k=20&c=sLdRUDIweG1CVtsOQwn6SRNm2dFzwlWaUaVuogNHFHc=" alt="Growth" class="flower-image">
+        </div>
+        <div class="stage-back">
+          <h2>Stage 3: Growth</h2>
+          <img src="https://media.istockphoto.com/id/180904795/photo/hibiscus-flowers.jpg?s=612x612&w=0&k=20&c=wLr6VM7LrxJUlJWRsC05HJSqKgEq90ahtW7RiIfKpA4=" alt="Growth" class="stage-image">
+          <p>In this stage, the plant continues to grow and develop.</p>
+        </div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-card">
+        <div class="stage-front">
+          <img src="https://media.istockphoto.com/id/512009411/photo/red-hibiscus-flower.jpg?s=612x612&w=0&k=20&c=CydcxkYM3JPA0wJ2yQFIsGUILJTjoDFC-e352bABwII=" alt="Blooming" class="flower-image">
+        </div>
+        <div class="stage-back">
+          <h2>Stage 4: Blooming</h2>
+          <img src="https://media.istockphoto.com/id/959912064/photo/purple-pink-flowers-and-green-leaves-on-blue-cloudy-sky.jpg?s=612x612&w=0&k=20&c=wra6vUwDuHINZ2MKy8Oh3PCmyePOJOgrbnngygOANJA=" alt="Blooming" class="stage-image">
+          <p>Blooming is the stage where the plant produces flowers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+    
+const stages = document.querySelectorAll('.stage');
+
+stages.forEach((stage) => {
+  stage.addEventListener('click', () => {
+    
+    stage.classList.toggle('active');
+  });
+});
+
+</script>
+</body>
+</html>
