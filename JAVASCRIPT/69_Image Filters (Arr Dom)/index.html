@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+  background-color: #111;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #222;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+  background-color: #bdb5b5;
+}
+
+.filter-button.active {
+  background-color: #5e5959;
+}
+
+.image-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.image:hover img {
+  transform: scale(1.1);
+}
+
+.image:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image:hover:before {
+  opacity: 1;
+}
+
+.image:before,
+.image img {
+  mix-blend-mode: normal;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+  filter: none; 
+}
+
+.image.nature:before,
+.image.nature img {
+  filter: none;
+}
+
+.image.tech:before,
+.image.tech img {
+  filter: brightness(100%);
+}
+
+.image.fashion:before,
+.image.fashion img {
+  filter: grayscale(10%);
+}
+
+  </style>
+</head>
+<body>
+  <div class="gallery-container">
+    <section class="filter-section">
+      <button class="filter-button active" data-filter="all">All</button>
+      <button class="filter-button" data-filter="nature">Nature</button>
+      <button class="filter-button" data-filter="tech">Tech</button>
+      <button class="filter-button" data-filter="fashion">Fashion</button>
+    </section>
+    <section class="image-section">
+      <div class="image nature">
+        <img src="https://media.istockphoto.com/id/472560436/photo/houseboat-in-southern-india.jpg?s=612x612&w=0&k=20&c=PYp-SgZO5Wkd7Ja2FPINpPlEjZZU24jYdEhxjQST-dU=" alt="Nature 1">
+      </div>
+      <div class="image tech">
+        <img src="https://media.istockphoto.com/id/1257617279/photo/smart-office-concept.jpg?s=612x612&w=0&k=20&c=Igw0LB-SqzYLf3IMBHStyw25spFjJDLZG7t-tVh4Ajg=" alt="Animal 1">
+      </div>
+      <div class="image fashion">
+        <img src="https://media.istockphoto.com/id/1312051741/photo/shot-of-a-young-women-as-a-fashion-designer-stock-photo.jpg?s=612x612&w=0&k=20&c=CwNvWSSfLim0yYIBhCchWLHiOMDZ6qB7t9oIpebzKS0=" alt="Architecture 1">
+      </div>
+      <div class="image nature">
+        <img src="https://media.istockphoto.com/id/956382548/photo/women-harvest-tea-leaves-heart-shaped-hands-of-women-who-are-watching-the-morning-tea.jpg?s=612x612&w=0&k=20&c=yWctYip8Svlq6hYph6yIyD9Vibc3eEL8SI4kMXaQ1ro=" alt="Architecture 1">
+      </div>
+      <div class="image tech">
+        <img src="https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8=" alt="Animal 1">
+      </div>
+      <div class="image fashion">
+        <img src="https://media.istockphoto.com/id/1131097418/photo/beautiful-woman-with-shopping-bags-in-the-city-sale-shopping-tourism-and-happy-people-concept.jpg?s=612x612&w=0&k=20&c=XzAFRIbtsDn4hRYNMyiNn88CuO76vqyKLFANzRzUBzE=" alt="Architecture 1">
+      </div>
+      <div class="image nature">
+        <img src="https://media.istockphoto.com/id/497686593/photo/houseboat.jpg?s=612x612&w=0&k=20&c=3U21YnYOCgF-0lfHAX4vS0KGL5rHHMdMqg2GxFTODR8=" alt="Architecture 1">
+      </div>
+      <div class="image tech">
+        <img src="https://media.istockphoto.com/id/1332827275/photo/business-investment-and-ai-artificial-intelligence-data-analysis-technology-businessman-and.jpg?s=612x612&w=0&k=20&c=b97jCFDp-4hBQc4VKwG2Foay_c_JvYE3gphh-NSd_NU=" alt="Architecture 1">
+      </div>
+      <div class="image fashion">
+        <img src="https://media.istockphoto.com/id/1059524166/photo/beautiful-charming-indian-woman-in-saree.jpg?s=612x612&w=0&k=20&c=gGio_9lw1Sx1bmerPsz6XyyVdu1jgZ3mAUViFcpg9ng=" alt="Architecture 1">
+      </div>
+   
+    </section>
+  </div>
+
+<script>
+    const filterButtons = Array.from(document.querySelectorAll('.filter-button'));
+const images = Array.from(document.querySelectorAll('.image'));
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    filterButtons.forEach((btn) => btn.classList.remove('active'));
+    button.classList.add('active');
+    filterImages(filter);
+  });
+});
+
+function filterImages(filter) {
+  if (filter === 'all') {
+    images.forEach((image) => image.style.display = 'block');
+  } else {
+    images.forEach((image) => {
+      const imageFilter = image.classList.contains(filter) ? 'block' : 'none';
+      image.style.display = imageFilter;
+    });
+  }
+}
+
+</script>
+</body>
+</html>
