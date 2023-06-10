@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Task Manager</title>
+    <style>
+        /* Add your preferred styles here */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #8b1fff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        #task-form {
+            margin-top: 20px;
+        }
+
+        #task-input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #282728;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5a575c;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+        }
+
+        li input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        li .task-name {
+            flex: 1;
+        }
+
+        li .delete-btn {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        li .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Task Manager</h1>
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Enter a task...">
+            <button type="submit">Add Task</button>
+        </form>
+    </header>
+
+    <main>
+        <ul id="task-list"></ul>
+    </main>
+    <script>
+
+        const taskForm = document.getElementById('task-form');
+        const taskInput = document.getElementById('task-input');
+        const taskList = document.getElementById('task-list');
+
+
+        taskForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+
+            const taskName = taskInput.value;
+
+            // Clear input
+            taskInput.value = '';
+
+            // Create new task element
+            const newTask = document.createElement('li');
+            newTask.innerHTML = `
+    <input type="checkbox">
+    <span class="task-name">${taskName}</span>
+    <button class="delete-btn">Delete</button>
+  `;
+
+            // Add event listener to delete button
+            const deleteBtn = newTask.querySelector('.delete-btn');
+            deleteBtn.addEventListener('click', function () {
+                newTask.remove();
+            });
+
+            // Append new task to the list
+            taskList.appendChild(newTask);
+        });
+
+    </script>
+</body>
+
+</html>
