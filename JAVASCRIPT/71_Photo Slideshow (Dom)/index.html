@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Photo Slideshow</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #9137f2, #3fcdf8);
+        }
+
+
+        #slideshow-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            opacity: 1;
+            width: 800px;
+            transition: opacity 0.5s ease-in-out;
+            animation: fadeInOut 4s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 1;
+            }
+        }
+
+        .slideshow-container:hover #slideshow-image {
+            opacity: 0.2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slideshow-container">
+        <div class="slideshow">
+            <img id="slideshow-image"
+                src="https://media.istockphoto.com/id/497686593/photo/houseboat.jpg?s=612x612&w=0&k=20&c=3U21YnYOCgF-0lfHAX4vS0KGL5rHHMdMqg2GxFTODR8="
+                alt="Image 1">
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = [
+                "https://media.istockphoto.com/id/511119924/photo/tea-plantations-and-river-in-hills-kerala-india.jpg?s=612x612&w=0&k=20&c=pYHem1q8SIdCC7t7pv3s6QM1ZrmU3nkCoSaEQMg8vqg=",
+                "https://media.istockphoto.com/id/978499462/photo/monsoon-time-people-crossing-a-river-by-boat-in-rain.jpg?s=612x612&w=0&k=20&c=5OOriIjWkOWsLjuH8jRuBfkwMprGGSTPz5YUuSGaOoc=",
+                "https://media.istockphoto.com/id/1283720141/photo/man-backlight-watching-the-amazing-view-of-mountain-layers-covered-with-white-mist-at-dawn.jpg?s=612x612&w=0&k=20&c=LAd3UhHV2P6kLdsprow-gSiEGC-2vsvReKXpAb2zviw=",
+                "https://media.istockphoto.com/id/148423909/photo/a-sunset-over-chinese-fishing-nets-by-a-canoe-in-cochin.jpg?s=612x612&w=0&k=20&c=76RtSZhX5iheTAyDuH6Uzl9JNWD5axbWlEWc2bXKChw=",
+                "https://media.istockphoto.com/id/1225173869/photo/house-boat-anchored-in-lake-with-jungle-background-backwaters-kerala-india.jpg?s=612x612&w=0&k=20&c=uo-bsRQjhlT9AgeWBs_pkSvHQwStCelMC75EUpzwjHU=",
+                "https://media.istockphoto.com/id/516627008/photo/beautiful-cottages-at-goa-beach.jpg?s=612x612&w=0&k=20&c=2K4OuVKsrYj0FxFUYcR1CF6sgJf1fnkSWadaytlKDNk=",
+                "https://media.istockphoto.com/id/1467473783/photo/a-mystical-white-waterfall.jpg?s=612x612&w=0&k=20&c=QE0L5ia-pJY6gHdjBjhi0yCvV9kQnZD2JxNX-8xITQw=",
+                "https://media.istockphoto.com/id/1160316337/photo/tea-plantations.jpg?s=612x612&w=0&k=20&c=5gj1mezzy3cHlCQcqiOIM8pLBLeMyWoxW3e_R57eyv8=",
+                "https://media.istockphoto.com/id/1402164895/photo/india-highway-85.jpg?s=612x612&w=0&k=20&c=pvQIz48zriAWUVSOvElKQKo9Ke879VwQmJKAY-qOZSE=",
+                "https://media.istockphoto.com/id/1211820195/photo/a-herd-of-wild-asian-elephants-feeding-in-the-periyar-river-kerala-india.jpg?s=612x612&w=0&k=20&c=qXwUrw1dgzdQhkqTqMrcr0i_QE2Oq7VWRCaPOoVgQP8=",
+                "https://media.istockphoto.com/id/488851719/photo/tea-plantation-landscape-sunset.jpg?s=612x612&w=0&k=20&c=R1WQEwwP-OuAp5ro3EvARCaLQkinOpG3G_h-uaPYyJQ="
+
+            ];
+            const slideshowImage = document.getElementById("slideshow-image");
+            let currentIndex = 0;
+
+            function showNextImage() {
+                currentIndex++;
+                if (currentIndex >= images.length) {
+                    currentIndex = 0;
+                }
+                slideshowImage.src = images[currentIndex];
+            }
+
+            setInterval(showNextImage, 2000);
+        });
+
+    </script>
+</body>
+
+</html>
