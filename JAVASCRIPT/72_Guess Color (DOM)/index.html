@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guess the Color</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        #color-container {
+            margin-top: 50px;
+            font-size: 24px;
+            padding: 20px;
+            border: 2px solid #000;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #color-container:hover {
+            background-color: #f0f0f0;
+        }
+
+        #guess-input {
+            margin-top: 20px;
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        #submit-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #000;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #submit-button:hover {
+            background-color: #717070;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Guess the Color</h1>
+    <div id="color-container"></div>
+    <input type="text" id="guess-input" placeholder="Enter your guess">
+    <button id="submit-button">Submit</button>
+    <p id="message"></p>
+
+    <script>
+        const colorContainer = document.getElementById("color-container");
+        const guessInput = document.getElementById("guess-input");
+        const submitButton = document.getElementById("submit-button");
+        const message = document.getElementById("message");
+        let targetColor;
+
+        generateColor();
+
+        function generateColor() {
+            const colors = [
+                "red", "green", "blue", "yellow", "orange", "purple",
+                "pink", "brown", "cyan", "magenta", "black", "white"
+            ];
+            targetColor = colors[Math.floor(Math.random() * colors.length)];
+            colorContainer.style.backgroundColor = targetColor;
+        }
+
+        submitButton.addEventListener("click", checkGuess);
+
+        function checkGuess() {
+            const guess = guessInput.value.trim().toLowerCase();
+            if (guess === targetColor) {
+                message.textContent = "Correct!";
+                message.style.color = "green";
+                generateColor();
+                guessInput.value = "";
+            } else {
+                message.textContent = "Try again!";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>
