@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Virtual Art Gallery</title>
+    <style>
+        body {
+            background-color: #F2E8C9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .gallery {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .room {
+            margin: 10px;
+            border: 2px solid #444;
+            padding: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .room:hover {
+            transform: scale(1.1);
+        }
+
+        .artwork {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .heading {
+
+            font-size: 44px;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+
+        .art-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="heading">Virtual Art Gallery</h1>
+
+    <div class="gallery" id="gallery">
+        <div class="room">
+            <img src="https://images.unsplash.com/photo-1602964547811-466ac79138e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bGFuZHNjYXBlJTIwcGFpbnRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Artwork 1" class="artwork">
+            <p class="art-title">Painting Art</p>
+        </div>
+        <div class="room">
+            <img src="https://images.unsplash.com/photo-1517187654069-ba29110a1d9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHNjdWxwdHVyZSUyMGFydHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Artwork 2" class="artwork">
+            <p class="art-title">Sculpture Art</p>
+        </div>
+        <div class="room">
+            <img src="https://images.unsplash.com/photo-1593101200659-79b13ac086d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBob3RncmFwaHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Artwork 3" class="artwork">
+            <p class="art-title">Photography Art</p>
+        </div>
+        <div class="room">
+            <img src="https://images.unsplash.com/photo-1640921980311-e9ba0199fed0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fGRyYXdpbmdzJTIwY2hhcmNvbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Artwork 4" class="artwork">
+            <p class="art-title">Drawing Art</p>
+        </div>
+        <div class="room">
+            <img src="https://plus.unsplash.com/premium_photo-1661392833616-d3cd1e07a2d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHN0cmVldCUyMGFydHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Artwork 5" class="artwork">
+            <p class="art-title">Street Art</p>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const artworks = [
+                {
+                    src: 'https://images.unsplash.com/photo-1602964547811-466ac79138e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bGFuZHNjYXBlJTIwcGFpbnRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+                    alt: 'Artwork 1',
+                    type: 'Painting Art',
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1517187654069-ba29110a1d9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHNjdWxwdHVyZSUyMGFydHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+                    alt: 'Artwork 2',
+                    type: 'Sculpture Art',
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1593101200659-79b13ac086d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBob3RncmFwaHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+                    alt: 'Artwork 3',
+                    type: 'Photography Art',
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1640921980311-e9ba0199fed0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fGRyYXdpbmdzJTIwY2hhcmNvbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+                    alt: 'Artwork 4',
+                    type: 'Drawing Art',
+                },
+                {
+                    src: 'https://plus.unsplash.com/premium_photo-1661392833616-d3cd1e07a2d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHN0cmVldCUyMGFydHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+                    alt: 'Artwork 5',
+                    type: 'Street Art',
+                },
+            ];
+
+            const galleryContainer = document.getElementById('gallery');
+
+            artworks.forEach((artwork, index) => {
+                const room = galleryContainer.children[index];
+                const image = room.querySelector('.artwork');
+                const title = room.querySelector('.art-title');
+                image.src = artwork.src;
+                image.alt = artwork.alt;
+                title.textContent = artwork.type;
+            });
+        });
+    </script>
+</body>
+
+</html>
