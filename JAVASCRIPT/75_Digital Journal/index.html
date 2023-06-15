@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Digital Journal</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #292929;
+            font-family: Arial, sans-serif;
+        }
+        
+        .journal-container {
+            width: 600px;
+            height: 600px;
+            background-color: #2fdef2;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .journal-entry {
+            margin-bottom: 20px;
+        }
+        
+        .journal-entry h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #2a2428;
+        }
+        
+        .journal-entry p {
+            margin-bottom: 0;
+            font-size: 16px;
+            color: #333333;
+        }
+        
+        .submit-btn {
+            background-color: #ff2d88;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #f41164;
+        }
+
+        /* Increase text size for input field */
+        #title-input,
+        #content-input {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="journal-container">
+        <h1>
+            Digital Journal
+        </h1>
+        <form id="journal-form">
+            <input type="text" id="title-input" placeholder="Title" required><br>
+            <textarea id="content-input" placeholder="Write your journal entry here" rows="6" required></textarea><br>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <div id="journal-entries"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('journal-form');
+        const titleInput = document.getElementById('title-input');
+        const contentInput = document.getElementById('content-input');
+        const journalEntries = document.getElementById('journal-entries');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const title = titleInput.value;
+            const content = contentInput.value;
+
+            const entry = document.createElement('div');
+            entry.classList.add('journal-entry');
+            entry.innerHTML = `
+                <h3>${title}</h3>
+                <p>${content}</p>
+            `;
+
+            journalEntries.prepend(entry);
+
+            // Clear input fields
+            titleInput.value = '';
+            contentInput.value = '';
+        });
+    </script>
+</body>
+</html>
