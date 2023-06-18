@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <style>
+        body {
+            background-color: #f3cfcf;
+            font-family: 'Gill Sans', sans-serif;
+            text-align: center;
+        }
+
+        .timer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .timer {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .time-display {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .timer-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff1686;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff3b8d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timer-container">
+        <h1>Pomodoro Timer</h1>
+        <div class="timer">
+            <div class="time-display">
+                <span id="minutes">25</span>
+                <span>:</span>
+                <span id="seconds">00</span>
+            </div>
+            <div class="timer-buttons">
+                <button id="start">Start</button>
+                <button id="pause">Pause</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const minutesDisplay = document.getElementById('minutes');
+        const secondsDisplay = document.getElementById('seconds');
+        const startButton = document.getElementById('start');
+        const pauseButton = document.getElementById('pause');
+        const resetButton = document.getElementById('reset');
+        let countdown;
+
+        function startTimer(duration) {
+            let timer = duration * 60;
+            clearInterval(countdown);
+
+            countdown = setInterval(function () {
+                const minutes = Math.floor(timer / 60);
+                const seconds = timer % 60;
+
+                minutesDisplay.textContent = minutes < 10 ? '0' + minutes : minutes;
+                secondsDisplay.textContent = seconds < 10 ? '0' + seconds : seconds;
+
+                if (--timer < 0) {
+                    clearInterval(countdown);
+                    alert('Time is up!');
+                }
+            }, 1000);
+        }
+
+        startButton.addEventListener('click', function () {
+            startTimer(25);
+        });
+
+        pauseButton.addEventListener('click', function () {
+            clearInterval(countdown);
+        });
+
+        resetButton.addEventListener('click', function () {
+            minutesDisplay.textContent = '25';
+            secondsDisplay.textContent = '00';
+            clearInterval(countdown);
+        });
+    </script>
+</body>
+
+</html>
