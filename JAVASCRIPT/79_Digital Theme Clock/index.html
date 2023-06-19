@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Theme Clock</title>
+    <style>
+        body.default {
+            --primary-color: #673ab7;
+            --secondary-color: #fa3f7d;
+            --background-color: #f6ecec;
+        }
+
+        body.dark {
+            --primary-color: #23ff2a;
+            --secondary-color: #ffffff;
+            --background-color: #322f2f;
+        }
+
+        body.colorful {
+            --primary-color: #2e2b2a;
+            --secondary-color: #ffffff;
+            --background-color: #10abff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: var(--background-color);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            color: var(--primary-color);
+        }
+
+        .clock {
+            margin: 30px 0;
+            font-size: 40px;
+            color: var(--secondary-color);
+        }
+
+        .theme-selector {
+            margin-top: 20px;
+        }
+
+        #theme {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #theme option {
+            color: #ffffff;
+            background-color: var(--primary-color);
+        }
+
+        .theme-selector:hover {
+            transform: scale(1.05);
+        }
+
+        .clock-animation {
+            animation: color-change 2s infinite alternate;
+        }
+
+        @keyframes color-change {
+            from {
+                color: var(--secondary-color);
+            }
+
+            to {
+                color: var(--primary-color);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Digital Clock</h1>
+        <div class="clock">
+            <p id="time"></p>
+        </div>
+        <div class="theme-selector">
+            <label for="theme">Select Theme:</label>
+            <select id="theme">
+                <option value="default">Default</option>
+                <option value="dark">Dark</option>
+                <option value="colorful">Colorful</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        const timeElement = document.getElementById('time');
+        const themeSelector = document.getElementById('theme');
+
+        themeSelector.addEventListener('change', changeTheme);
+
+        function updateTime() {
+            const currentTime = new Date();
+            const hours = currentTime.getHours().toString().padStart(2, '0');
+            const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+            const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            timeElement.innerText = timeString;
+        }
+
+        function changeTheme() {
+            const selectedTheme = themeSelector.value;
+            document.body.className = selectedTheme;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+
+    </script>
+</body>
+
+</html>
