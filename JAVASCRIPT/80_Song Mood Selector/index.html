@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* CSS styles */
+        body {
+            background-color: #0b0b0b;
+            font-family: "Gill Sans", sans-serif;
+            color: aliceblue;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: azure;
+        }
+
+        #mood-options {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .mood {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: rgb(32, 243, 243);
+            border: none;
+            border-radius: 4px;
+            color: #333333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .mood:hover {
+            background-color: rgb(132, 251, 251);
+        }
+
+        #song-display {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #song-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #song-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        #song-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        #song-artist {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Song Mood Selector</h1>
+
+    <div id="mood-options">
+        <button class="mood" data-mood="happy">Happy</button>
+        <button class="mood" data-mood="sad">Sad</button>
+        <button class="mood" data-mood="energetic">Energetic</button>
+        <button class="mood" data-mood="calm">Calm</button>
+    </div>
+
+    <div id="song-display">
+        <h2>Suggested Song:</h2>
+        <div id="song-info">
+            <img id="song-image"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl6wEeUE9MKydb4MBHBMrFxoOuvlD6lZI2cg&usqp=CAU"
+                alt="">
+            <p id="song-title">Humari Adhuri Kahani</p>
+            <p id="song-artist">Arijit Singh</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code
+        var moodButtons = document.querySelectorAll(".mood");
+        var songImage = document.getElementById("song-image");
+        var songTitle = document.getElementById("song-title");
+        var songArtist = document.getElementById("song-artist");
+
+        var songs = [
+            {
+                mood: "happy",
+                title: "New York Nagaram",
+                artist: "AR Rehman Sir",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTETc7cBKRIkvklISaOcAo3TB2pTaxijGFb_g&usqp=CAU"
+            },
+            {
+                mood: "sad",
+                title: "Humari Adhuri Kahani",
+                artist: "Arijit Singh",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl6wEeUE9MKydb4MBHBMrFxoOuvlD6lZI2cg&usqp=CAU"
+            },
+            {
+                mood: "energetic",
+                title: "Nee Singham Dhan",
+                artist: "Sid Sriram",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQvJdQF5gxMT22Myz-Ugz1aKpmhNtaDlfYCQ&usqp=CAU"
+            },
+            {
+                mood: "calm",
+                title: "Kathale Kathale",
+                artist: "Chinmayi",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKTdSVqj44Iae2c9OmUxzrgcdTYNEA1pDZXQ&usqp=CAU"
+            }
+        ];
+
+        function displaySong(mood) {
+            var selectedSong = songs.find(function (song) {
+                return song.mood === mood;
+            });
+
+            if (selectedSong) {
+                songImage.src = selectedSong.image;
+                songTitle.textContent = selectedSong.title;
+                songArtist.textContent = selectedSong.artist;
+            } else {
+                songImage.src = "";
+                songTitle.textContent = "No song found.";
+                songArtist.textContent = "";
+            }
+        }
+
+        moodButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                var selectedMood = this.getAttribute("data-mood");
+                displaySong(selectedMood);
+            });
+        });
+    </script>
+</body>
+
+</html>
