@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notes App</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #222;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .container {
+      width: 700px;
+      padding: 20px;
+      background-color: rgb(242, 234, 220);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 650px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 2px solid #201e1e;
+      border-radius: 4px;
+      font-size: 1.5rem;
+      color: #201e1e;
+      font-weight: 400;
+    }
+
+    button {
+      width: 150px;
+      padding: 13px;
+      font-size: 1.2rem;
+      border-radius: 4px;
+      background-color: #420980;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #6c099b; 
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Notes App</h1>
+    <div id="notes-container">
+      <h2>Title</h2>
+      <input type="text" id="title-input" placeholder="Enter title">
+      <h2>Notes</h2>
+      <textarea id="notes-input" placeholder="Enter notes"></textarea>
+      <button id="save-btn">Save</button>
+      <button id="clear-btn">Clear</button>
+      <button id="save-draft-btn">Save as Draft</button>
+    </div>
+  </div>
+
+  <script>
+    // Retrieve the required elements
+    const titleInput = document.getElementById('title-input');
+    const notesInput = document.getElementById('notes-input');
+    const saveBtn = document.getElementById('save-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const saveDraftBtn = document.getElementById('save-draft-btn');
+    const notesContainer = document.getElementById('notes-container');
+
+    // Add event listeners to the buttons
+    saveBtn.addEventListener('click', saveNotes);
+    clearBtn.addEventListener('click', clearNotes);
+    saveDraftBtn.addEventListener('click', saveDraft);
+
+    // Load saved notes from local storage
+    loadNotes();
+
+    // Function to save notes
+    function saveNotes() {
+      const title = titleInput.value;
+      const notes = notesInput.value;
+      
+      if (title && notes) {
+        // Save the notes to local storage
+        localStorage.setItem('title', title);
+        localStorage.setItem('notes', notes);
+        
+        alert('Notes saved successfully!');
+      } else {
+        alert('Please enter a title and notes before saving!');
+      }
+    }
+
+    // Function to clear notes
+    function clearNotes() {
+      titleInput.value = '';
+      notesInput.value = '';
+      
+      // Remove saved notes from local storage
+      localStorage.removeItem('title');
+      localStorage.removeItem('notes');
+      
+      alert('Notes cleared!');
+    }
+
+    // Function to save notes as draft
+    function saveDraft() {
+      const title = titleInput.value;
+      const notes = notesInput.value;
+      
+      if (title || notes) {
+        // Save the draft notes to local storage
+        localStorage.setItem('draftTitle', title);
+        localStorage.setItem('draftNotes', notes);
+        
+        alert('Draft saved successfully!');
+      } else {
+        alert('No draft notes found!');
+      }
+    }
+
+    // Function to load saved notes from local storage
+    function loadNotes() {
+      const savedTitle = localStorage.getItem('title');
+      const savedNotes = localStorage.getItem('notes');
+      
+      titleInput.value = savedTitle || '';
+      notesInput.value = savedNotes || '';
+    }
+  </script>
+</body>
+</html>
