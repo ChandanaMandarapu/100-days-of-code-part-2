@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather of the Soul</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Gill Sans", sans-serif;
+            background: peachpuff;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            height: 100vh;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .weather-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .weather-icon {
+            width: 300px;
+            height: 300px;
+            border-radius: 5px;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .weather-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .weather-info {
+            display: none;
+            margin-top: 20px;
+            animation: fade-in 0.5s ease-in-out;
+        }
+
+        .weather-info.visible {
+            display: block;
+        }
+
+        .weather-description {
+            font-size: 1.5rem;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Emotional Weather</h1>
+        <div class="weather-icons">
+            <img class="weather-icon"
+                src="https://media.istockphoto.com/id/104637612/photo/the-end-of-a-rainbow-with-a-field-in-the-foreground.jpg?s=612x612&w=0&k=20&c=qUAPXeK2alzEUmCeQHeS4ypcWe1N-w-_ld1n1SrI3tY="
+                alt="Sun" onclick="toggleWeatherInfo(this)">
+            <img class="weather-icon"
+                src="https://media.istockphoto.com/id/1263562386/photo/beautifully-structured-thunderstorm-in-bulgarian-plains.jpg?s=612x612&w=0&k=20&c=rwkwG1u0eWlOvOxy5GR8n5xNsQtzI-KutnZsQxTM3Ec="
+                alt="Cloud" onclick="toggleWeatherInfo(this)">
+            <img class="weather-icon"
+                src="https://media.istockphoto.com/id/978499462/photo/monsoon-time-people-crossing-a-river-by-boat-in-rain.jpg?s=612x612&w=0&k=20&c=5OOriIjWkOWsLjuH8jRuBfkwMprGGSTPz5YUuSGaOoc="
+                alt="Rain" onclick="toggleWeatherInfo(this)">
+            <img class="weather-icon"
+                src="https://media.istockphoto.com/id/1269603616/photo/another-peaceful-evening.jpg?s=612x612&w=0&k=20&c=mxZTeP4UdZ7Bpyn8FontbDn3SreTUAAoHQnw0W17e6U="
+                alt="Thunderstorm" onclick="toggleWeatherInfo(this)">
+        </div>
+        <div id="weather-info-sun" class="weather-info">
+            <h2>Rainbow</h2>
+            <p class="weather-description">
+                "After every storm, there is a rainbow of hope, reminding us that even in the darkest times, there is
+                beauty and light."
+            </p>
+        </div>
+        <div id="weather-info-cloud" class="weather-info">
+            <h2>Cloud</h2>
+            <p class="weather-description">
+                "Even on cloudy days, remember that the sun is always shining behind the clouds."
+            </p>
+        </div>
+        <div id="weather-info-rain" class="weather-info">
+            <h2>Rain</h2>
+            <p class="weather-description">
+                "Let the rain wash away your worries and nurture new beginnings."
+            </p>
+        </div>
+        <div id="weather-info-thunderstorm" class="weather-info">
+            <h2>Thunderstorm</h2>
+            <p class="weather-description">
+                "In the midst of the storm, find strength and resilience to overcome any challenge."
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function toggleWeatherInfo(element) {
+            const weatherId = element.alt.toLowerCase();
+            const weatherInfo = document.getElementById(`weather-info-${weatherId}`);
+            weatherInfo.classList.toggle('visible');
+        }
+    </script>
+</body>
+
+</html>
