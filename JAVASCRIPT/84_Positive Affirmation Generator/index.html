@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positive Affirmation Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .affirmation-card {
+            font-family: "Gill Sans", sans-serif;
+            font-size: 1.6rem;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="max-w-md mx-auto p-4 rounded-md shadow-md bg-gray-200">
+        <div class="affirmation-card">
+            <h1 class="text-2xl font-bold mb-4">Positive Affirmation Generator</h1>
+            <p class="text-xl text-gray-800 mb-8" id="affirmation"></p>
+            <button class="px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded transition-colors duration-300"
+                id="generateBtn">Generate Affirmation</button>
+        </div>
+    </div>
+
+    <script>
+        const affirmationList = [
+            "I am worthy of love and happiness.",
+            "I am confident and capable of achieving my goals.",
+            "I embrace change and welcome new opportunities.",
+            "I am grateful for all the abundance in my life.",
+            "I have the power to create positive change in the world.",
+            "I am deserving of success and prosperity.",
+            "I radiate love and kindness to everyone around me.",
+            "I trust in my abilities and believe in myself.",
+            "I am in control of my thoughts and emotions.",
+            "I am surrounded by positive energy and loving people."
+        ];
+
+        const generateBtn = document.getElementById("generateBtn");
+        const affirmationDisplay = document.getElementById("affirmation");
+
+        function generateAffirmation() {
+            const randomIndex = Math.floor(Math.random() * affirmationList.length);
+            const randomAffirmation = affirmationList[randomIndex];
+            affirmationDisplay.textContent = randomAffirmation;
+            changeBackgroundColor();
+        }
+
+        function changeBackgroundColor() {
+            const randomColor = generateRandomColor();
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        function generateRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        generateBtn.addEventListener("click", generateAffirmation);
+    </script>
+</body>
+
+</html>
