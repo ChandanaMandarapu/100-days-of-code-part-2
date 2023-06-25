@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Interactive Story</title>
+    <style>
+        body {
+            background-color: #abfcb7;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 1.5rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1,
+        p {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4a4e69;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #22223b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Nature Interactive Story</h1>
+
+        <section id="scene1">
+            <img src="https://media.istockphoto.com/id/1246205611/photo/woman-walking-alone-in-the-forest.jpg?s=612x612&w=0&k=20&c=ngu8MIdb7fjT_PxLutAdbA54cwlf4Ou8TaBZSeP1mak="
+                alt="Scene 1">
+            <p>Welcome to our nature adventure! You find yourself in a lush forest surrounded by towering trees and
+                singing birds.</p>
+            <a href="#" class="btn" onclick="goToScene(2)">Continue</a>
+        </section>
+
+        <section id="scene2" style="display: none;">
+            <img src="https://media.istockphoto.com/id/1212665831/photo/young-woman-traveler-is-having-fun-on-summer-vacation-on-background-waterfall.jpg?s=612x612&w=0&k=20&c=eKMBzEwV3IgJaAqT4SnxxDHBrl6LXH4p9UBhN7mpqlo="
+                alt="Scene 2">
+            <p>As you venture deeper into the forest, you spot a hidden waterfall cascading down a moss-covered cliff.
+                The sound of rushing water soothes your soul.</p>
+            <a href="#" class="btn" onclick="goToScene(3)">Continue</a>
+        </section>
+
+        <section id="scene3" style="display: none;">
+            <img src="https://media.istockphoto.com/id/479550528/photo/lonely-deer.jpg?s=612x612&w=0&k=20&c=MiPgZcuW12bZwxkdg8UygFJHPtg5IiHUjyOdnnWb86E="
+                alt="Scene 3">
+            <p>A majestic deer appears before you, its graceful movements captivating your attention. You admire its
+                gentle nature and the beauty of the surrounding forest.</p>
+            <a href="#" class="btn" onclick="goToScene(4)">Continue</a>
+        </section>
+
+        <section id="scene4" style="display: none;">
+            <img src="https://media.istockphoto.com/id/1090034254/photo/on-the-lawn-in-pink-rhododendrons-the-girl-is-sitting-in-lotus-posture-on-the-striped-rug.jpg?s=612x612&w=0&k=20&c=6M_xPt6uACJFwZC0KiPXgp52f9ca6Cz1wMQLT3AvgaA="
+                alt="Scene 4">
+            <p>You stumble upon a hidden meadow filled with vibrant wildflowers. The air is filled with the sweet scent
+                of nature. You take a moment to appreciate the delicate beauty surrounding you.</p>
+            <a href="#" class="btn" onclick="goToScene(5)">Continue</a>
+        </section>
+
+        <section id="scene5" style="display: none;">
+            <img src="https://media.istockphoto.com/id/1424947269/photo/teenage-hiking-in-the-high-austrian-mountains-alps-tyrol-austria.jpg?s=612x612&w=0&k=20&c=KtmqJnHpfK3wfDn0yUbTOv6FRGo4vD0Q18hMoJCYFgg="
+                alt="Scene 5">
+            <p>You climb a steep trail and reach a breathtaking viewpoint. The vast mountain landscape stretches as far
+                as the eye can see. You feel a sense of awe and connection to the natural world.</p>
+            <a href="#" class="btn" onclick="goToScene(6)">Continue</a>
+        </section>
+
+        <section id="scene6" style="display: none;">
+            <img src="https://media.istockphoto.com/id/1169527977/photo/young-woman-enjoying-autumn.jpg?s=612x612&w=0&k=20&c=TpCLfaMua3cZ0e0k_dNkOLcLXTyX9fvyjCKgXXy9z8s="
+                alt="Scene 6">
+            <p>You find yourself in an enchanting autumn forest, surrounded by trees adorned with vibrant hues of red,
+                orange, and gold. The crisp air and falling leaves create a sense of tranquility.</p>
+            <a href="#" class="btn" onclick="goToScene(7)">Continue</a>
+        </section>
+
+        <section id="scene7" style="display: none;">
+            <img src="https://media.istockphoto.com/id/1472168192/photo/beautiful-female-in-red-hat-hiking-during-free-time-at-national-park-view-from-back-happy.jpg?s=612x612&w=0&k=20&c=fjJai6Re8eqLcFLo6_X8UisXdcLzdDKEKXphlQ6bZWc="
+                alt="Scene 7">
+            <p>You come across a serene lake blanketed in morning mist. The gentle ripples on the water's surface and
+                the distant sound of bird songs create a sense of serenity within you.</p>
+            <a href="#" class="btn" onclick="goToScene(8)">Continue</a>
+        </section>
+
+        <section id="scene8" style="display: none;">
+            <img src="https://media.istockphoto.com/id/873620504/photo/young-woman-in-heart-shape-cave-towards-the-idyllic-sunrise.jpg?s=612x612&w=0&k=20&c=3yi3-SKjlRLwWh3FZDUg9Zgpge5Fuh7fmKQTm9c36fo="
+                alt="Scene 8">
+            <p>The sun rises over the majestic mountains, casting a golden glow on the landscape. You feel a sense of
+                gratitude and connection to the beauty of nature.</p>
+            <a href="#" class="btn" onclick="goToScene(1)">Restart</a>
+        </section>
+
+        <script>
+            function goToScene(sceneNumber) {
+                // Hide all scenes
+                var scenes = document.querySelectorAll('section');
+                for (var i = 0; i < scenes.length; i++) {
+                    scenes[i].style.display = 'none';
+                }
+
+                // Show the selected scene
+                var scene = document.getElementById('scene' + sceneNumber);
+                if (scene) {
+                    scene.style.display = 'block';
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
