@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Teddy Bear Animation</title>
+    <style>
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #container {
+            position: relative;
+            text-align: center;
+        }
+
+        #teddyBear {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 550px;
+            height: auto;
+            transition: transform 0.3s;
+            border-radius: 50%;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1.5rem;
+        }
+
+        #moveButton:hover {
+            background-color: #fd8da0;
+        }
+
+        #jumpButton:hover {
+            background-color: #51ade7;
+        }
+
+        #waveButton:hover {
+            background-color: #7efb7e;
+        }
+
+        #spinButton:hover {
+            background-color: #ffe23d;
+        }
+
+        #bounceButton:hover {
+            background-color: #d48f74;
+        }
+
+        #growButton:hover {
+            background-color: #54b8c5;
+        }
+
+        #shrinkButton:hover {
+            background-color: #fc74fc;
+        }
+
+        #rotateButton:hover {
+            background-color: #7f751c;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-50px);
+            }
+
+            60% {
+                transform: translateY(-35px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img id="teddyBear"
+            src="https://media.istockphoto.com/id/1291681199/photo/teddy-bear-with-a-red-heart-isolated-over-white-background-valentines-day-concept.jpg?s=612x612&w=0&k=20&c=Nf9OGvGLgY8WtFxq6aZqAGCJKP4bows3G75KVyB5Cs0="
+            alt="Teddy Bear">
+        <button id="moveButton">Move</button>
+        <button id="jumpButton">Jump</button>
+        <button id="waveButton">Wave</button>
+        <button id="spinButton">Spin</button>
+        <button id="bounceButton">Bounce</button>
+        <button id="growButton">Grow</button>
+        <button id="shrinkButton">Shrink</button>
+        <button id="rotateButton">Rotate</button>
+    </div>
+
+    <script>
+        const teddyBear = document.getElementById('teddyBear');
+        const moveButton = document.getElementById('moveButton');
+        const jumpButton = document.getElementById('jumpButton');
+        const waveButton = document.getElementById('waveButton');
+        const spinButton = document.getElementById('spinButton');
+        const bounceButton = document.getElementById('bounceButton');
+        const growButton = document.getElementById('growButton');
+        const shrinkButton = document.getElementById('shrinkButton');
+        const rotateButton = document.getElementById('rotateButton');
+
+        moveButton.addEventListener('click', () => {
+            teddyBear.style.transform = 'translateX(200px)';
+        });
+
+        jumpButton.addEventListener('click', () => {
+            teddyBear.style.transform = 'translateY(-100px)';
+            setTimeout(() => {
+                teddyBear.style.transform = 'translateY(0)';
+            }, 500);
+        });
+
+        waveButton.addEventListener('click', () => {
+            teddyBear.style.transform = 'rotate(-20deg)';
+            setTimeout(() => {
+                teddyBear.style.transform = 'rotate(20deg)';
+            }, 500);
+            setTimeout(() => {
+                teddyBear.style.transform = 'rotate(0)';
+            }, 1000);
+        });
+
+        spinButton.addEventListener('click', () => {
+            teddyBear.style.transform = 'rotate(360deg)';
+        });
+
+        bounceButton.addEventListener('click', () => {
+            teddyBear.style.animation = 'bounce 1s';
+        });
+
+        growButton.addEventListener('click', () => {
+            teddyBear.style.transform = 'scale(1.5)';
+        });
+
+        shrinkButton.addEventListener('click', () => {
+            teddyBear.style.transform = 'scale(0.5)';
+        });
+
+        rotateButton.addEventListener('click', () => {
+            teddyBear.style.transform = 'rotate(180deg)';
+        });
+    </script>
+</body>
+
+</html>
