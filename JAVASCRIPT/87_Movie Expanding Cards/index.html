@@ -1,0 +1,136 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Expanding Cards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(5, 5, 5);
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            width: 100vw;
+        }
+
+        .bg-image {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+
+
+
+        .image-1 {
+            background-image: url(https://w0.peakpx.com/wallpaper/367/934/HD-wallpaper-movie-extraction-2020-chris-hemsworth-extraction-movie.jpg);
+        }
+
+        .image-2 {
+            background-image: url(https://images.alphacoders.com/530/thumbbig-530505.webp);
+        }
+
+        .image-3 {
+            background-image: url(https://images4.alphacoders.com/298/thumbbig-298358.webp);
+        }
+
+        .image-4 {
+            background-image: url(https://mcdn.wallpapersafari.com/medium/52/12/IWrpNc.jpg);
+        }
+
+        .image-5 {
+            background-image: url(https://images4.alphacoders.com/121/thumbbig-1216483.webp);
+        }
+
+        .slide {
+            position: relative;
+            height: 80vh;
+            flex: 0.5;
+            border-radius: 50px;
+            color: #fef9f9;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 700ms ease-in;
+        }
+
+        .slide h3 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            margin: 0;
+            opacity: 0;
+            font-size: 34px;
+        }
+
+        @media (max-width: 480px) {
+
+            .slide:nth-of-type(4),
+            .slide:nth-of-type(5) {
+                display: none;
+            }
+        }
+
+        /* JavaScript */
+        .slide.active {
+            flex: 5;
+        }
+
+        .slide.active h3 {
+            opacity: 1;
+            transition: opacity 0.3s ease-in 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="slide bg-image image-1 active">
+            <h3>Extraction</h3>
+        </div>
+        <div class="slide bg-image image-2">
+            <h3>Interstellar</h3>
+        </div>
+        <div class="slide bg-image image-3">
+            <h3>Inception</h3>
+        </div>
+        <div class="slide bg-image image-4">
+            <h3>Extraction 2</h3>
+        </div>
+        <div class="slide bg-image image-5">
+            <h3>The Adam Project</h3>
+        </div>
+    </div>
+    <script>
+        const slides = document.querySelectorAll(".slide");
+
+        slides.forEach((slide) => {
+            slide.addEventListener("click", () => {
+                removeCurrentActives();
+                slide.classList.add("active");
+            });
+        });
+
+        function removeCurrentActives() {
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+        }
+    </script>
+</body>
+
+</html>
