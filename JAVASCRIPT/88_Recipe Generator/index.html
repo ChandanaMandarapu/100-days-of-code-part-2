@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Recipe Generator</title>
+    <style>
+        body {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: "Gill Sans", sans-serif;
+        }
+
+        #recipe-container {
+            width: 500px;
+            padding: 20px;
+            background-color: #d7d2d2;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: rgb(255, 88, 116);
+            color: #FFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .save-button {
+            background-color: #3075ff;
+        }
+
+        .saved-recipes {
+            margin-top: 20px;
+        }
+
+        .saved-recipes h3 {
+            color: #433b3b;
+            margin-bottom: 10px;
+        }
+
+        .saved-recipes ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .saved-recipes li {
+            margin-bottom: 5px;
+        }
+
+        /* Popup */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .popup p {
+            margin-bottom: 20px;
+        }
+
+        .close-button {
+            background-color: #FF5252;
+            color: #FFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="recipe-container">
+        <h1>Random Recipe Generator</h1>
+        <img src="https://media.istockphoto.com/id/1292563627/photo/assorted-south-indian-breakfast-foods-on-wooden-background-ghee-dosa-uttappam-medhu-vada.jpg?s=612x612&w=0&k=20&c=HvuYT3RiWj5YsvP2_pJrSWIcZUXhnTKqjKhdN3j_SgY="
+            id="recipe-image" alt="Recipe Image">
+        <h2 id="recipe-title"></h2>
+        <p id="recipe-ingredients"></p>
+        <p id="recipe-instructions"></p>
+        <button onclick="generateRecipe()">Generate Recipe</button>
+        <button class="save-button" onclick="saveRecipe()">Save Recipe</button>
+        <div class="saved-recipes">
+            <h3>Saved Recipes</h3>
+            <ul id="saved-recipes-list"></ul>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="popup">
+            <h2 id="popup-recipe-title"></h2>
+            <p id="popup-recipe-ingredients"></p>
+            <p id="popup-recipe-instructions"></p>
+            <button class="close-button" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+
+        var recipes = [
+            {
+                title: "Dosa",
+                image: "https://media.istockphoto.com/id/909906350/photo/masala-dosa-south-indian-food.jpg?s=612x612&w=0&k=20&c=3CI-bw2NhYaX_t0-CZIXIIXsOygFcUaoGSmzbnVB-fU=",
+                ingredients: "1 cup rice flour, 1/4 cup urad dal, water, salt",
+                instructions: "1. Soak the rice flour and urad dal separately for a few hours. 2. Grind them into a smooth batter. 3. Ferment the batter overnight. 4. Heat a griddle, pour a ladleful of batter, and spread it into a thin circle. 5. Cook until golden brown on both sides."
+            },
+            {
+                title: "Idli",
+                image: "https://media.istockphoto.com/id/1424489070/photo/idly-sambar-or-idli-with-sambhar-and-green-red-chutney-popular-south-indian-breakfast.jpg?s=612x612&w=0&k=20&c=j3bXAgUCG8Rla_kHxnaf2G4frh1Vva7LFvLnLvV34hc=",
+                ingredients: "1 cup idli rice, 1/4 cup urad dal, water, salt",
+                instructions: "1. Soak the idli rice and urad dal separately for a few hours. 2. Grind them into a smooth batter. 3. Ferment the batter overnight. 4. Grease idli molds and pour the batter into each mold. 5. Steam for 10-12 minutes or until cooked."
+            },
+            {
+                title: "Sambhar",
+                image: "https://media.istockphoto.com/id/1306609920/photo/sambar-_white-bowl.jpg?s=612x612&w=0&k=20&c=SFU4dmYL_9mCohrrWOtnX_dIpIekNhJB88TETA_wt6I=",
+                ingredients: "Toor dal, mixed vegetables (carrots, beans, drumstick, etc.), tamarind paste, sambar powder, salt, turmeric, oil, mustard seeds, curry leaves",
+                instructions: "1. Pressure cook toor dal with water until soft. 2. In a separate pan, heat oil and add mustard seeds and curry leaves. 3. Add mixed vegetables and sauté for a few minutes. 4. Add tamarind paste, sambar powder, salt, and turmeric. 5. Add cooked toor dal and simmer until vegetables are cooked."
+            },
+            {
+                title: "Coconut Chutney",
+                image: "https://media.istockphoto.com/id/1083239516/photo/nariyal-or-coconut-chutney-served-in-a-bowl-isolated-over-moody-background-selective-focus.jpg?s=612x612&w=0&k=20&c=VjARcpIxMiqQG_6BkeRFz1-RLht1bbghF1Dt3qbhhRc=",
+                ingredients: "1 cup grated coconut, 2 green chilies, 1/2 inch ginger, salt, water, oil, mustard seeds, curry leaves",
+                instructions: "1. Grind grated coconut, green chilies, and ginger into a coarse paste. 2. Add salt and water to adjust the consistency. 3. Heat oil in a pan and add mustard seeds and curry leaves. 4. Pour the tempering over the chutney. 5. Serve as a side dish with dosa or idli."
+            },
+            {
+                title: "Pongal",
+                image: "https://media.istockphoto.com/id/1254226960/photo/dalia-khichdi-or-daliya-khichadi-is-a-delicious-one-pot-meal-made-from-broken-wheat-and.jpg?s=612x612&w=0&k=20&c=O78IXoBFjcqkusuRF3KGGtU_El7BIGxPq6hqcKfQU8o=",
+                ingredients: "1 cup rice, 1/4 cup split moong dal, water, salt, ghee, cumin seeds, black pepper, ginger, curry leaves, cashew nuts",
+                instructions: "1. Dry roast moong dal until aromatic. 2. Pressure cook rice and moong dal with water, salt, and a teaspoon of ghee. 3. Heat ghee in a pan and add cumin seeds, black pepper, ginger, curry leaves, and cashew nuts. 4. Sauté until cashew nuts turn golden brown. 5. Mix the tempering with the cooked rice and dal. Serve hot."
+            }
+        ];
+
+        var savedRecipes = [];
+
+        function generateRecipe() {
+            var randomIndex = Math.floor(Math.random() * recipes.length);
+            var recipe = recipes[randomIndex];
+
+            document.getElementById("recipe-image").src = recipe.image;
+            document.getElementById("recipe-title").textContent = recipe.title;
+            document.getElementById("recipe-ingredients").textContent = "Ingredients: " + recipe.ingredients;
+            document.getElementById("recipe-instructions").textContent = "Instructions: " + recipe.instructions;
+        }
+
+        function saveRecipe() {
+            var recipeTitle = document.getElementById("recipe-title").textContent;
+
+            if (!savedRecipes.includes(recipeTitle)) {
+                savedRecipes.push(recipeTitle);
+                updateSavedRecipesList();
+            }
+        }
+
+        function updateSavedRecipesList() {
+            var savedRecipesList = document.getElementById("saved-recipes-list");
+            savedRecipesList.innerHTML = "";
+
+            for (var i = 0; i < savedRecipes.length; i++) {
+                var listItem = document.createElement("li");
+                listItem.textContent = savedRecipes[i];
+                listItem.onclick = showPopup.bind(null, savedRecipes[i]);
+                savedRecipesList.appendChild(listItem);
+            }
+        }
+
+        function showPopup(recipeTitle) {
+            var recipe = recipes.find(function (r) {
+                return r.title === recipeTitle;
+            });
+
+            if (recipe) {
+                document.getElementById("popup-recipe-title").textContent = recipe.title;
+                document.getElementById("popup-recipe-ingredients").textContent = "Ingredients: " + recipe.ingredients;
+                document.getElementById("popup-recipe-instructions").textContent = "Instructions: " + recipe.instructions;
+                document.getElementById("overlay").style.display = "flex";
+            }
+        }
+
+        function closePopup() {
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
