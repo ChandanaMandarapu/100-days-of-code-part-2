@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Men's Mental Health</title>
+    <style>
+        body {
+            font-family: "Gill Sans", sans-serif;
+            background-color: #333333;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* First Section */
+        #section1 {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #quote {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        /* Second Section */
+        #section2 {
+            background-color: #222222;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        #section2 img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #section2 .content {
+            width: 100%;
+            max-width: 500px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        /* Third Section */
+        #section3 {
+            background-color: #222222;
+            padding: 50px;
+            text-align: center;
+        }
+
+        #section3 h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #section3 ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #section3 li {
+            margin: 10px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        #section3 li:hover {
+            opacity: 1;
+        }
+
+        #section3 li:hover img {
+            opacity: 0.7;
+        }
+
+        #section3 li img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Responsive Styles */
+        @media only screen and (min-width: 600px) {
+            #section2 {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            #section2 img {
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Section 1: Background Video with Quote -->
+    <div id="section1">
+        <video id="bg-video" src="pexels-jorge-tapia-5340699 (2160p).mp4" autoplay loop muted></video>
+        <h1 id="quote">"Honoring men's mental well-being, a month of care and growth."</h1>
+    </div>
+
+    <!-- Section 2: Importance of Men's Mental Health -->
+    <div id="section2">
+        <img src="https://media.istockphoto.com/id/1264156957/photo/young-man-in-the-city-reaching-his-goals.jpg?s=612x612&w=0&k=20&c=-xtXMjc8CecrJWLkETw6yk6-yVhswh7w1_uh5ele820="
+            alt="Image">
+        <div class="content">
+            <h2>Why Men's Mental Health Matters</h2>
+            <p>"Taking care of your mental health is essential for your overall well-being."Men's mental health is a
+                crucial aspect of their overall health and well-being. It is important to address and prioritize mental
+                health to lead a fulfilling life. Society often places expectations and pressures on men, which can
+                contribute to stress, anxiety, and other mental health challenges. By recognizing the importance of
+                mental health and seeking support when needed, men can take proactive steps towards maintaining their
+                mental well-being.</p>
+        </div>
+    </div>
+
+    <!-- Section 3: Mental Health Tips -->
+    <div id="section3">
+        <h2>Mental Health Tips</h2>
+        <ul>
+            <li>
+                <img src="https://media.istockphoto.com/id/1202966610/photo/a-bearded-man-is-meditating-outdoor-in-the-park-with-face-raised-up-to-sky-and-eyes-closed-on.jpg?s=612x612&w=0&k=20&c=oDcRyS59E-8Ey--cY41EpnmDaTp23CWI2HDhn7L2CGE="
+                    alt="Tip 1">
+                <p>Take time for self-care and relaxation.</p>
+            </li>
+            <li>
+                <img src="https://media.istockphoto.com/id/1057146526/photo/handsome-man-legs-workout-with-kettlebell-in-the-gym.jpg?s=612x612&w=0&k=20&c=nBQNKfiOa-gYTLNQuWhRNjyIVnMQC_eIizWTqKw2aRU="
+                    alt="Tip 2">
+                <p>Engage in regular physical activity to boost mood.</p>
+            </li>
+            <li>
+                <img src="https://media.istockphoto.com/id/472475490/photo/three-generations.jpg?s=612x612&w=0&k=20&c=CE6Cl_ziwygEELVpC8Q5XS4Mwu-gN6PldPiggzIbr7g="
+                    alt="Tip 3">
+                <p>Connect with loved ones and maintain healthy relationships.</p>
+            </li>
+            <li>
+                <img src="https://media.istockphoto.com/id/1178353856/photo/a-young-man-meditates-in-a-lotus-position-over-the-ganges-river-in-rishikesh-at-the-sunset.jpg?s=612x612&w=0&k=20&c=7j4JGKEY2KP5vMvK6yp6BbQIMRXm-YIZsMLK5bOrkPU="
+                    alt="Tip 4">
+                <p>Practice stress management techniques, such as deep breathing or meditation.</p>
+            </li>
+            <li>
+                <img src="https://media.istockphoto.com/id/498501496/photo/young-proffesional-team-working-together-in-the-office.jpg?s=612x612&w=0&k=20&c=L5zK2igWa228s9TOINu0RGvgjIdRBhtJ8eq6V8B6Cf0="
+                    alt="Tip 5">
+                <p>Seek professional help if you are struggling with mental health challenges.</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Animation for Section 1
+        const quoteElement = document.getElementById('quote');
+        quoteElement.classList.add('fade-in');
+
+        // Animation for Section 2
+        const imageElement = document.querySelector('#section2 img');
+        const contentElement = document.querySelector('#section2 .content');
+        imageElement.classList.add('slide-right');
+        contentElement.classList.add('slide-left');
+
+        // Animation for Section 3
+        const tipsListElement = document.querySelectorAll('#section3 li');
+        tipsListElement.forEach((tip) => {
+            tip.classList.add('fade-in');
+        });
+    </script>
+</body>
+
+</html>
