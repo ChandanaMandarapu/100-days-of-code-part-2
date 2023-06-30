@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guess the Cartoon Character</title>
+    <style>
+        body {
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        #game-container {
+            width: 500px;
+            padding: 20px;
+            background-color: #ee1878;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: azure;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #7d0ab7;
+            color: #FFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game-container">
+        <h1>Guess the Cartoon Character</h1>
+        <img src="" id="character-image" alt="Character Image">
+        <div id="options-container">
+            <button onclick="checkAnswer(this)"></button>
+            <button onclick="checkAnswer(this)"></button>
+            <button onclick="checkAnswer(this)"></button>
+            <button onclick="checkAnswer(this)"></button>
+        </div>
+        <p id="feedback"></p>
+        <button onclick="nextCharacter()">Next Character</button>
+    </div>
+
+    <script>
+        var characters = [
+            {
+                name: "Mickey Mouse",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy0KTHIydTOPdChg3K7N_cyChB660ab4uiHg&usqp=CAU"
+            },
+            {
+                name: "Doreamon",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1bl9ViVbh69JlY_IHlF4VngNgW6e9EjW4NQ&usqp=CAU"
+            },
+            {
+                name: "Shinchan",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREvpHHOOiCAa84VnL53DJxYRsft_fTmpVrpA&usqp=CAU"
+            },
+            {
+                name: "Ninja Hattori",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjZT05gORSydpO1Ijo4lJ91BiiOvXeoPK5gg&usqp=CAU"
+            },
+            {
+                name: "Kid Vs Kat",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQde3o0o7ge-CR_VpkIEmnwsl5l7rtsgVHweg&usqp=CAU"
+            },
+            {
+                name: "Oggy and the Cockroaches",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNbXUzq9qScaHY1qZ_xf3zPlpevfrW0xG31w&usqp=CAU"
+            },
+            {
+                name: "Tom and Jerry",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHvBp7UAKCuTDyfauE1TnhGSqGhHPXjIuFpw&usqp=CAU"
+            },
+            {
+                name: "Mr Bean",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKHKomD0iE3HPdSPDa-ZVLLUS5iuOHiw_7Q&usqp=CAU"
+            }
+        ];
+
+        var currentCharacterIndex = 0;
+        var options = document.querySelectorAll("#options-container button");
+        var feedback = document.getElementById("feedback");
+
+        function initializeGame() {
+            loadCharacter();
+        }
+
+        function loadCharacter() {
+            var character = characters[currentCharacterIndex];
+            document.getElementById("character-image").src = character.image;
+
+            // Shuffle the options
+            var shuffledOptions = shuffleArray(characters.map(char => char.name));
+
+            // Assign the shuffled options to the buttons
+            for (var i = 0; i < options.length; i++) {
+                options[i].textContent = shuffledOptions[i];
+            }
+
+            feedback.textContent = "";
+        }
+
+        function checkAnswer(button) {
+            var selectedOption = button.textContent;
+            var character = characters[currentCharacterIndex];
+
+            if (selectedOption === character.name) {
+                feedback.textContent = "Correct!";
+                feedback.style.color = "#fff";
+            } else {
+                feedback.textContent = "Wrong!";
+                feedback.style.color = "#eee";
+            }
+
+            // Disable the buttons
+            for (var i = 0; i < options.length; i++) {
+                options[i].disabled = true;
+            }
+        }
+
+        function nextCharacter() {
+            // Enable the buttons
+            for (var i = 0; i < options.length; i++) {
+                options[i].disabled = false;
+            }
+
+            // Move to the next character
+            currentCharacterIndex = (currentCharacterIndex + 1) % characters.length;
+            loadCharacter();
+        }
+
+        // Utility function to shuffle an array
+        function shuffleArray(array) {
+            var currentIndex = array.length;
+            var temporaryValue, randomIndex;
+
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
+        initializeGame();
+    </script>
+</body>
+
+</html>
