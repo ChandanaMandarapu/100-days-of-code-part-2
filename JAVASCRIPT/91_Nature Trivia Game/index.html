@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nature Trivia Game</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            background-color: #f3f3f3;
+            overflow: hidden;
+            font-size: 1.5rem;
+        }
+
+        #bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: -1;
+        }
+
+        #container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(56, 54, 54, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(223, 208, 208, 0.2);
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        #question-container {
+            margin-bottom: 30px;
+        }
+
+        #question {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #f8f2f2;
+        }
+
+        #options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #b9b5b5;
+        }
+
+        #score-container {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff9f9;
+        }
+
+        #start-btn {
+            padding: 20px 30px;
+            background-color: #479d4a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #start-btn:hover {
+            background-color: #22c029;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="pexels-mikhail-nilov-6981411 (1080p).mp4" type="video/mp4">
+    </video>
+    <div id="container">
+        <h1>Nature Trivia Game</h1>
+        <div id="question-container">
+            <h2 id="question"></h2>
+            <ul id="options"></ul>
+        </div>
+        <div id="score-container">
+            <h3>Score: <span id="score">0</span></h3>
+        </div>
+        <button id="start-btn">Start Game</button>
+    </div>
+    <script>
+        // JavaScript Code (script.js)
+        const questions = [
+            {
+                question: "What is the largest mammal on Earth?",
+                options: [
+                    { text: "Elephant", correct: false },
+                    { text: "Blue Whale", correct: true },
+                    { text: "Giraffe", correct: false },
+                    { text: "Hippopotamus", correct: false }
+                ]
+            },
+            {
+                question: "Which bird is known for its ability to mimic human speech?",
+                options: [
+                    { text: "Parrot", correct: true },
+                    { text: "Owl", correct: false },
+                    { text: "Penguin", correct: false },
+                    { text: "Peacock", correct: false }
+                ]
+            },
+            {
+                question: "What is the process by which plants convert sunlight into energy?",
+                options: [
+                    { text: "Photosynthesis", correct: true },
+                    { text: "Respiration", correct: false },
+                    { text: "Transpiration", correct: false },
+                    { text: "Pollination", correct: false }
+                ]
+            },
+            {
+                question: "Which is the largest species of penguin?",
+                options: [
+                    { text: "Emperor Penguin", correct: true },
+                    { text: "King Penguin", correct: false },
+                    { text: "Adelie Penguin", correct: false },
+                    { text: "Chinstrap Penguin", correct: false }
+                ]
+            },
+            {
+                question: "What is the largest species of shark?",
+                options: [
+                    { text: "Great White Shark", correct: false },
+                    { text: "Whale Shark", correct: true },
+                    { text: "Tiger Shark", correct: false },
+                    { text: "Hammerhead Shark", correct: false }
+                ]
+            },
+            {
+                question: "Which is the tallest tree species in the world?",
+                options: [
+                    { text: "Sequoia", correct: true },
+                    { text: "Eucalyptus", correct: false },
+                    { text: "Oak", correct: false },
+                    { text: "Pine", correct: false }
+                ]
+            },
+            {
+                question: "Which animal has the longest lifespan?",
+                options: [
+                    { text: "Elephant", correct: true },
+                    { text: "Tortoise", correct: false },
+                    { text: "Giant Clam", correct: false },
+                    { text: "Macaw", correct: false }
+                ]
+            },
+            {
+                question: "What is the world's largest rainforest?",
+                options: [
+                    { text: "Amazon Rainforest", correct: true },
+                    { text: "Congo Rainforest", correct: false },
+                    { text: "Daintree Rainforest", correct: false },
+                    { text: "Valdivian Rainforest", correct: false }
+                ]
+            },
+            {
+                question: "Which is the fastest land animal?",
+                options: [
+                    { text: "Cheetah", correct: true },
+                    { text: "Gazelle", correct: false },
+                    { text: "Lion", correct: false },
+                    { text: "Leopard", correct: false }
+                ]
+            },
+            {
+                question: "What is the world's largest coral reef system?",
+                options: [
+                    { text: "Great Barrier Reef", correct: true },
+                    { text: "Belize Barrier Reef", correct: false },
+                    { text: "Red Sea Coral Reef", correct: false },
+                    { text: "Mesoamerican Barrier Reef", correct: false }
+                ]
+            }
+        ];
+
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        const scoreElement = document.getElementById("score");
+        const startButton = document.getElementById("start-btn");
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function startGame() {
+            startButton.style.display = "none";
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.innerText = currentQuestion.question;
+
+            optionsElement.innerHTML = "";
+            currentQuestion.options.forEach(option => {
+                const optionElement = document.createElement("li");
+                optionElement.innerText = option.text;
+                optionElement.classList.add("option");
+                optionElement.addEventListener("click", () => {
+                    if (option.correct) {
+                        score++;
+                    }
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        renderQuestion();
+                    } else {
+                        endGame();
+                    }
+                });
+                optionsElement.appendChild(optionElement);
+            });
+        }
+
+        function endGame() {
+            questionElement.innerText = "Quiz Completed!";
+            optionsElement.innerHTML = "";
+            scoreElement.innerText = score + " / " + questions.length;
+        }
+
+        startButton.addEventListener("click", startGame);
+
+    </script>
+</body>
+
+</html>
