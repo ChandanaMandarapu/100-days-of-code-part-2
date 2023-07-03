@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guru Purnima Celebration</title>
+    <style>
+        /* CSS Styles */
+
+        body {
+            font-family: "Gill Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        /* Section 1: Importance of Guru Purnima */
+        .section1 {
+            background-color: rgb(77, 75, 75);
+            padding: 50px;
+            color: azure;
+        }
+
+        .section1 h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section1 p {
+            font-size: 1.2rem;
+        }
+
+        .section1 img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            max-width: 500px;
+        }
+
+        /* Section 2: Guru Purnima Blessings */
+        .section2 {
+            background-color: rgb(246, 175, 149);
+            padding: 50px;
+            color: #222;
+        }
+
+        .section2 h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 450px;
+            height: 300px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-front {
+            background-color: #e9dede;
+            font-size: 1.2rem;
+            color: #333333;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .card-back {
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+            padding: 20px;
+        }
+
+        .card-back img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Section 3: Learnings from Guru */
+        .section3 {
+            background-color: rgb(77, 75, 75);
+            padding: 50px;
+            color: azure;
+        }
+
+        .section3 .container {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section3 .content {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .section3 .content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .section3 .content p {
+            font-size: 1.2rem;
+            text-align: left;
+        }
+
+        .section3 .image {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .section3 .image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Section 1: Importance of Guru Purnima -->
+    <section class="section1">
+        <div class="container">
+            <h2>Importance of Guru Purnima</h2>
+            <div class="content">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1WD5pY10PYRvlP9m4r7X-Oi1IzZXufIYYRA&usqp=CAU"
+                    alt="Guru Purnima Image">
+                <p>Guru Purnima holds immense significance as it is a day dedicated to honoring and expressing gratitude
+                    towards our spiritual and academic mentors. It is a time to acknowledge their invaluable guidance,
+                    teachings, and wisdom, which lead us on the path of enlightenment and self-realization. This
+                    auspicious occasion reminds us of the profound impact that gurus have in shaping our lives and
+                    nurturing our spiritual growth. It is an opportunity for seekers to deepen their connection with
+                    their gurus and seek their blessings for continued spiritual progress. Guru Purnima serves as a
+                    reminder to cherish and value the presence of these enlightened beings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Guru Purnima Blessings -->
+    <section class="section2">
+        <div class="container">
+            <h2>Guru Purnima Blessings</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <h3>Sai Ram</h3>
+                            <p class="quote">"Love one another and help others to rise to the higher levels, simply by
+                                pouring out love. Love is infectious and the greatest healing energy."</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh24ghs55UQ8PVJ9ILzG0Aw4sEeaL7MB9heg&usqp=CAU"
+                                alt="Guru 1 Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat the card divs for other blessings -->
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <h3>Buddha</h3>
+                            <p class="quote">"Do not dwell in the past, do not dream of the future, concentrate the mind
+                                on the present moment. Keep your mind in control."</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sG7jQlkTzrMVkVXj47YLdEjXgR2NO0KThQ&usqp=CAU"
+                                alt="Guru 2 Image">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <h3>Krishna</h3>
+                            <p class="quote">"Set your heart upon your work, but never its reward.Do your work with the
+                                welfare of others always in mind. Karma Paysoff one fineday.."</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIaD8pN0EsLPF6O9ZfUIPmMNnb2gtmTuuBjw&usqp=CAU"
+                                alt="Guru 3 Image">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <h3>Shakthi</h3>
+                            <p class="quote">"Shiva and Parvati teach us the power of balance, embracing strength and
+                                compassion and the ultimate guide, leading us from darkness to light and a symbol of
+                                eternal love."</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNHRC_ehRd8kVcBSdV1rvTi-zwi2E8LSVWQQ&usqp=CAU"
+                                alt="Guru 4 Image">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <h3>Parents</h3>
+                            <p class="quote">"Parents are the guiding stars that light our path and nurture our dreams.
+                                From the loving guidance of parents, we learn the essence of support and undcontional
+                                love and encouragement."</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIy0lqVTbDdf_VqzVhURwkgCM1XBtg2UOHIQ&usqp=CAU"
+                                alt="Guru 5 Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat for other blessings -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Learnings from Guru -->
+    <section class="section3">
+        <div class="container">
+            <div class="content">
+                <h2>Learnings from Guru</h2>
+                <p>The Guru's wisdom has empowered me to overcome obstacles, embrace personal growth, and strive for
+                    excellence in all aspects of life. Their teachings have instilled a sense of purpose, helping me
+                    find clarity, and navigate life's challenges with resilience and wisdom. The Guru's guidance
+                    continues to inspire me to live authentically, pursue knowledge, and lead a meaningful and
+                    purposeful existence.</p>
+            </div>
+            <div class="image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrDvck5PE2_VBneOwzjZ0x-y6drjcm_zJV_A&usqp=CAU"
+                    alt="Person Image">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript code
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            const cardInner = card.querySelector('.card-inner');
+
+            card.addEventListener('mouseover', () => {
+                cardInner.style.transform = 'rotateY(180deg)';
+            });
+
+            card.addEventListener('mouseout', () => {
+                cardInner.style.transform = 'rotateY(0)'; A
+            });
+        });
+    </script>
+</body>
+
+</html>
