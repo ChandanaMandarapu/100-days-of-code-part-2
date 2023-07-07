@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Image Carousel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        :root {
+            --transition-speed: 0.5s;
+            --btn-bg-color: transparent;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition-speed) ease;
+        }
+
+        .img {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            top: -15vh;
+            left: -15vw;
+            z-index: 1;
+        }
+
+        .arrow-btn {
+            position: fixed;
+            bottom: 10vh;
+        }
+
+        .left-arrow {
+            left: calc(50vw - 120px);
+        }
+
+        .right-arrow {
+            right: calc(50vw - 120px);
+        }
+
+        .btn {
+            background-color: var(--btn-bg-color);
+            border: none;
+            color: crimson;
+            font-size: 4rem;
+            cursor: pointer;
+        }
+
+        /* Animation For JavaScript */
+        .animateTransition {
+            animation: animation var(--transition-speed) ease;
+        }
+
+        @keyframes animation {
+            0% {
+                transform: translateX(5px);
+                filter: blur(4px);
+            }
+
+            50% {
+                transform: translateX(-5px);
+                filter: blur(2px);
+            }
+
+            100% {
+                transform: translateX(0);
+                filter: blur(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="img-container">
+        <div class="img active"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+
+        <button class="btn arrow-btn left-arrow">
+            <p>&#x2190;</p>
+        </button>
+        <button class="btn arrow-btn right-arrow">
+            <p>&#x2192;</p>
+        </button>
+    </main>
+    <script>
+        const body = document.body;
+        const imgs = document.querySelectorAll(".img");
+        const arrowBtns = document.querySelectorAll(".arrow-btn");
+
+        let activeImg = 0;
+
+        function loadImage(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = url;
+                img.onload = () => resolve(img);
+                img.onerror = (error) => reject(error);
+            });
+        }
+
+        async function loadImages() {
+            const imageUrls = [
+                "https://source.unsplash.com/1600x900/?nature,monsoon",
+                "https://source.unsplash.com/1600x900/?nature,sunrise",
+                "https://source.unsplash.com/1600x900/?nature,sunset",
+                "https://source.unsplash.com/1600x900/?nature,winter",
+                "https://source.unsplash.com/1600x900/?nature,forest",
+                "https://source.unsplash.com/1600x900/?nature,mountains",
+                "https://source.unsplash.com/1600x900/?nature,snow",
+                "https://source.unsplash.com/1600x900/?nature,nature",
+                "https://source.unsplash.com/1600x900/?nature,sky",
+            ];
+
+            try {
+                const loadedImages = await Promise.all(
+                    imageUrls.map((url) => loadImage(url))
+                );
+
+                imgs.forEach((img, index) => {
+                    img.style.backgroundImage = `url(${loadedImages[index].src})`;
+                });
+
+                setImageAsBackground();
+            } catch (error) {
+                console.error("Error loading images", error);
+            }
+        }
+
+        function activeImages() {
+            imgs.forEach((img) => {
+                img.classList.remove("active");
+                img.classList.remove("animateTransition");
+            });
+
+            imgs[activeImg].classList.add("active");
+            imgs[activeImg].classList.add("animateTransition");
+        }
+
+        function setImageAsBackground() {
+            body.style.backgroundImage = imgs[activeImg].style.backgroundImage;
+        }
+
+        arrowBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                if (btn.classList == "right-arrow") {
+                    activeImg++;
+                    if (activeImg > imgs.length - 1) {
+                        activeImg = 0;
+                    }
+                } else {
+                    activeImg--;
+                    if (activeImg < 0) {
+                        activeImg = imgs.length - 1;
+                    }
+                }
+
+                setImageAsBackground();
+                activeImages();
+            });
+        });
+
+        loadImages();
+
+    </script>
+</body>
+
+</html>
