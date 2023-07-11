@@ -1,6 +1,6 @@
 # Chandana's Portfolio
 
-This is the README file for Chandana's Portfolio code. The code is written in HTML, CSS, and JavaScript and is used to create a portfolio website. Let's go through the code and understand each part.
+This is the README file for Chandana's Portfolio code. The code is written in HTML, CSS, and JavaScript and is used to create a portfolio website.
 
 ## HTML Structure
 
